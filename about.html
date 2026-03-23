@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Pryme X AI</title>
+
+    <link rel="icon" type="image/png" href="image_17.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        body { cursor: none; background-color: #0d0d0d; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .gold-gradient { background: linear-gradient(90deg, #FFD700, #B8860B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); transition: 0.3s; }
+        .animated-header { background: rgba(13, 13, 13, 0.85) !important; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 215, 0, 0.1); animation: slideDown 0.8s ease-out forwards; }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+        #custom-cursor { width: 8px; height: 8px; background: #FFD700; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; box-shadow: 0 0 10px #FFD700; }
+        #cursor-follower { width: 30px; height: 30px; border: 1px solid rgba(255, 215, 0, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease-out; }
+    </style>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div id="cursor-follower"></div>
+
+   <div class="fixed w-full z-50 px-4 py-4 md:px-10">
+    <nav id="nav-container" class="max-w-7xl mx-auto bg-[#0d0d0d]/80 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 flex justify-between items-center transition-all duration-300">
+        <a href="index.html" class="flex items-center gap-2">
+            <img src="image_17.png" alt="Logo" class="h-8 w-8">
+            <span class="text-lg font-bold tracking-widest uppercase italic">Pryme X <span class="text-yellow-500 text-xs">AI</span></span>
+        </a>
+
+        <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest text-gray-400">
+            <a href="index.html" class="hover:text-yellow-500 transition">Home</a>
+            <a href="about.html" class="text-yellow-500 font-bold">About</a>
+            <a href="services.html" class="hover:text-yellow-500 transition">Services</a>
+            <a href="contact.html" class="hover:text-yellow-500 transition border px-4 py-1 border-yellow-500/50 rounded-full">Contact</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden mt-4 bg-[#0d0d0d] border border-white/10 rounded-3xl p-6 flex flex-col gap-4 text-center text-xs uppercase tracking-[0.2em]">
+        <a href="index.html" class="text-yellow-500">Home</a>
+        <a href="about.html" class="text-white">About</a>
+        <a href="services.html" class="text-white">Services</a>
+        <a href="contact.html" class="text-white">Contact</a>
+    </div>
+</div>
+
+    </div>
+
+    <div class="pt-50 max-w-3xl mx-auto p-12 md:p-20">
+        <h1 class="text-6xl font-bold mb-12 gold-gradient italic uppercase text-center" data-aos="fade-up">Our Company</h1>
+        <div class="glass-card p-12 rounded-[40px] text-gray-300 leading-relaxed mb-12 shadow-2xl" data-aos="fade-up">
+            <p class="mb-8 text-xl italic text-yellow-500 text-center">"To build a 'Predictive Digital Fortress' where AI-driven systems neutralize threats before they manifest."</p>
+            <p class="mb-6">Pryme X AI is a global pioneer in the fusion of Artificial Intelligence and Cybersecurity, dedicated to securing the digital landscape for the modern era. Combining Sri Lankan engineering brilliance with a strategic vision from the USA, we deliver autonomous defense solutions that empower enterprises worldwide.
+
+Unlike traditional reactive security, our approach leverages advanced AI to predict and neutralize threats before they can impact your operations. With an elite team of international experts, we are committed to building a safer, more resilient digital future for all.</p>
+            <h3 class="text-2xl font-bold text-yellow-500 mb-4 italic uppercase">Our Mission</h3>
+            <p>Our mission is to redefine the standards of digital safety by creating self-healing, intelligent security architectures. We believe that the future of protection lies not in defending against attacks, but in predicting and preventing them through the power of global expertise and cutting-edge technology.</p>
+        </div>
+    </div>
+
+   <div class="pt-32 max-w-7xl mx-auto p-8 md:p-24 text-center"> <h1 class="text-5xl font-bold mb-20 italic uppercase" data-aos="fade-up">
+        Board of <span class="text-yellow-500">Directors</span>
+    </h1>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto"> 
+        
+        <div class="glass-card p-10 rounded-3xl flex flex-col items-center" data-aos="flip-left">
+            <img src="image_18.png" class="w-24 h-24 rounded-full border-2 border-yellow-500 mb-6 object-cover shadow-[0_0_20px_rgba(255,215,0,0.2)]">
+            <h3 class="font-bold uppercase tracking-widest text-white">Yasiru Nethshan</h3>
+            <p class="text-yellow-500 text-[10px] uppercase tracking-[0.3em] mt-2">CEO & Co Founder</p>
+        </div>
+
+        <div class="glass-card p-10 rounded-3xl flex flex-col items-center" data-aos="flip-left" data-aos-delay="100">
+            <img src="dev_photo.jpg" class="w-24 h-24 rounded-full border-2 border-gray-700 mb-6 object-cover">
+            <h3 class="font-bold uppercase tracking-widest text-white">Dev Scott</h3>
+            <p class="text-yellow-500 text-[10px] uppercase tracking-[0.3em] mt-2">Co Founder</p>
+        </div>
+        
+    
+    </div>
+
+    <section id="delivery-methods" class="py-24 px-8 bg-[#0d0d0d]">
+    <div class="max-w-7xl mx-auto text-center mb-16">
+        <span class="text-gray-500 uppercase tracking-[0.3em] text-[10px] block mb-4" data-aos="fade-up">How We Deliver</span>
+        <h2 class="text-4xl md:text-5xl font-bold italic gold-gradient uppercase" data-aos="fade-up">Our Professional Delivery Methods</h2>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+        <div class="glass-card p-8 rounded-3xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-yellow-500 transition-colors">1</div>
+            <h3 class="text-xl font-bold mb-4">SaaS Model</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">We deliver AI solutions via a cloud-based Software as a Service model, ensuring seamless access from anywhere at any time.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-yellow-500 transition-colors">2</div>
+            <h3 class="text-xl font-bold mb-4">On-Premise</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">For organizations requiring maximum data privacy, we deploy AI systems directly onto your internal local servers and infrastructure.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-yellow-500 transition-colors">3</div>
+            <h3 class="text-xl font-bold mb-4">API Integration</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">We provide secure API endpoints to integrate our advanced AI intelligence directly into your existing software and workflows.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold mb-6 group-hover:bg-yellow-500 transition-colors">4</div>
+            <h3 class="text-xl font-bold mb-4">Managed Ops</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Beyond delivery, our experts provide ongoing maintenance, security updates, and performance optimization for your AI assets.</p>
+        </div>
+    </div>
+</section>
+
+</div>
+
+    <div class="flex flex-wrap justify-center gap-6 mb-8 border-t border-white/5 pt-8">
+    <a href="index.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">Home</a>
+    <a href="about.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">About</a>
+    <a href="services.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">Services</a>
+    <a href="contact.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">Contact</a>
+</div>
+
+<footer class="py-12 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em]">
+    © 2026 Pryme X AI • Cyber AI Solution
+
+    <div class="text-center text-gray-600 text-[10px] uppercase tracking-[0.3em]">
+            USA - Sri Lanka
+        </div>
+
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        const cursor = document.getElementById('custom-cursor');
+        const follower = document.getElementById('cursor-follower');
+        window.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            setTimeout(() => { follower.style.left = (e.clientX - 11) + 'px'; follower.style.top = (e.clientY - 11) + 'px'; }, 60);
+        });
+    </script>
+</body>
+</html>

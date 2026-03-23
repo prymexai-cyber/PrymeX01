@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Pryme X AI</title>
+
+    <link rel="icon" type="image/png" href="image_17.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        body { cursor: none; background-color: #0d0d0d; color: white; font-family: 'Inter', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .glass-card:hover { border-color: #FFD700; transform: scale(1.05); background: rgba(255, 215, 0, 0.03); }
+        .animated-header { background: rgba(13, 13, 13, 0.85) !important; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 215, 0, 0.1); animation: slideDown 0.8s ease-out forwards; }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+        #custom-cursor { width: 8px; height: 8px; background: #FFD700; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; box-shadow: 0 0 10px #FFD700; }
+        #cursor-follower { width: 30px; height: 30px; border: 1px solid rgba(255, 215, 0, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease-out; }
+    </style>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div id="cursor-follower"></div>
+   <div class="fixed w-full z-50 px-4 py-4 md:px-10">
+    <nav id="nav-container" class="max-w-7xl mx-auto bg-[#0d0d0d]/80 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 flex justify-between items-center transition-all duration-300">
+        <a href="index.html" class="flex items-center gap-2">
+            <img src="image_17.png" alt="Logo" class="h-8 w-8">
+            <span class="text-lg font-bold tracking-widest uppercase italic">Pryme X <span class="text-yellow-500 text-xs">AI</span></span>
+        </a>
+
+        <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest text-gray-400">
+            <a href="index.html" class="hover:text-yellow-500 transition">Home</a>
+            <a href="about.html" class="hover:text-yellow-500 transition">About</a>
+            <a href="services.html" class="text-yellow-500 font-bold">Services</a>
+            <a href="contact.html" class="hover:text-yellow-500 transition border px-4 py-1 border-yellow-500/50 rounded-full">Contact</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden mt-4 bg-[#0d0d0d] border border-white/10 rounded-3xl p-6 flex flex-col gap-4 text-center text-xs uppercase tracking-[0.2em]">
+        <a href="index.html" class="text-yellow-500">Home</a>
+        <a href="about.html" class="text-white">About</a>
+        <a href="services.html" class="text-white">Services</a>
+        <a href="contact.html" class="text-white">Contact</a>
+    </div>
+</div>
+
+    <div class="pt-32 max-w-7xl mx-auto p-8 md:p-24">
+        <h1 class="text-5xl font-bold mb-20 text-center italic uppercase" data-aos="fade-down">Our <span class="text-yellow-500">Servises</span></h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="glass-card p-4 rounded-3xl" data-aos="zoom-in"><img src="Product1.png" class="h-56 w-full object-cover rounded-2xl mb-4"><h4 class="font-bold uppercase text-center py-2">Network Monitoring</h4></div>
+            <div class="glass-card p-4 rounded-3xl" data-aos="zoom-in" data-aos-delay="100"><img src="Product2.png" class="h-56 w-full object-cover rounded-2xl mb-4"><h4 class="font-bold uppercase text-center py-2">Ethical Hacking</h4></div>
+            <div class="glass-card p-4 rounded-3xl" data-aos="zoom-in" data-aos-delay="200"><img src="Product3.png" class="h-56 w-full object-cover rounded-2xl mb-4"><h4 class="font-bold uppercase text-center py-2">Penetration Testing</h4></div>
+            <div class="glass-card p-4 rounded-3xl" data-aos="zoom-in" data-aos-delay="300"><img src="Product4.png" class="h-56 w-full object-cover rounded-2xl mb-4"><h4 class="font-bold uppercase text-center py-2">Malware Analysis</h4></div>
+            <div class="glass-card p-4 rounded-3xl" data-aos="zoom-in" data-aos-delay="400"><img src="Product5.png" class="h-56 w-full object-cover rounded-2xl mb-4"><h4 class="font-bold uppercase text-center py-2">Keylogger Detection</h4></div>
+            <div class="glass-card p-4 rounded-3xl" data-aos="zoom-in" data-aos-delay="500"><img src="Product6.png" class="h-56 w-full object-cover rounded-2xl mb-4"><h4 class="font-bold uppercase text-center py-2">AI Phishing Guard</h4></div>
+        </div>
+    </div>
+
+    
+   <div class="flex flex-wrap justify-center gap-6 mb-8 border-t border-white/5 pt-8">
+    <a href="index.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">Home</a>
+    <a href="about.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">About</a>
+    <a href="services.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">Services</a>
+    <a href="contact.html" class="text-gray-500 hover:text-yellow-500 transition uppercase tracking-[0.2em] text-[10px] hover-target">Contact</a>
+</div>
+
+<footer class="py-12 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em]">
+    © 2026 Pryme X AI • Cyber AI Solution
+
+    <div class="text-center text-gray-600 text-[10px] uppercase tracking-[0.3em]">
+            USA - Sri Lanka
+        </div>
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000 });
+        const cursor = document.getElementById('custom-cursor');
+        const follower = document.getElementById('cursor-follower');
+        window.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            setTimeout(() => { follower.style.left = (e.clientX - 11) + 'px'; follower.style.top = (e.clientY - 11) + 'px'; }, 60);
+        });
+    </script>
+</body>
+</html>

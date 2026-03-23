@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Pryme X AI</title>
+    <link rel="icon" type="image/png" href="image_17.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        body { cursor: none; background-color: #0d0d0d; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); transition: all 0.3s ease; }
+        .gold-gradient { background: linear-gradient(90deg, #FFD700, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #custom-cursor { width: 8px; height: 8px; background: #FFD700; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; box-shadow: 0 0 10px #FFD700; }
+        #cursor-follower { width: 50px; height: 50px; border: 1px solid rgba(255, 215, 0, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease-out; }
+        input, textarea, select { transition: all 0.3s ease; }
+        input:focus, textarea:focus, select:focus { border-color: #FFD700 !important; background: rgba(255, 255, 255, 0.08) !important; }
+    </style>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <div class="fixed w-full z-50 px-4 py-4 md:px-10">
+        <nav id="nav-container" class="max-w-7xl mx-auto bg-[#0d0d0d]/80 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="image_17.png" alt="Logo" class="h-8 w-8">
+                <span class="text-lg font-bold tracking-widest uppercase italic">Pryme X <span class="text-yellow-500 text-xs">AI</span></span>
+            </a>
+            <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-widest text-gray-400">
+                <a href="index.html" class="hover:text-yellow-500 transition">Home</a>
+                <a href="about.html" class="hover:text-yellow-500 transition">About</a>
+                <a href="services.html" class="hover:text-yellow-500 transition">Services</a>
+                <a href="contact.html" class="text-yellow-500 font-bold border px-4 py-1 border-yellow-500/50 rounded-full">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 bg-[#0d0d0d] border border-white/10 rounded-3xl p-6 flex flex-col gap-4 text-center text-xs uppercase tracking-[0.2em]">
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html" class="text-yellow-500">Contact</a>
+        </div>
+    </div>
+
+    <section class="pt-48 pb-16 px-8 text-center" data-aos="fade-up">
+        <span class="text-gray-500 uppercase tracking-[0.4em] text-[10px] block mb-4">Contact Us</span>
+        <h1 class="text-4xl md:text-6xl font-bold italic uppercase leading-tight">
+            Connect with Our Team <span class="gold-gradient">for</span> <br>
+            <span class="gold-gradient">Assistance</span> and Support
+        </h1>
+        <p class="text-gray-500 text-[10px] uppercase tracking-widest mt-6 max-w-2xl mx-auto">
+            Pryme X AI delivers next-gen AI-powered solutions for smarter, more accessible productivity for all.
+        </p>
+    </section>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 px-8 mb-24">
+        <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-yellow-500 text-2xl mb-4 italic">💬</div>
+            <h4 class="font-bold text-xs uppercase mb-2">Live Chat</h4>
+            <p class="text-gray-500 text-[9px] mb-2 uppercase">Chat with our AI experts</p>
+            <p class="text-yellow-500 text-[14px] font-bold">prymexai@gmail.com</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-yellow-500 text-2xl mb-4 italic">📍</div>
+            <h4 class="font-bold text-xs uppercase mb-2">Office USA</h4>
+            <p class="text-white text-[14px]">USA Regional Office</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="text-yellow-500 text-2xl mb-4 italic">📍</div>
+            <h4 class="font-bold text-xs uppercase mb-2">Office Sri Lanka</h4>
+            <p class="text-white text-[14px]">Regional Support Office</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="text-yellow-500 text-2xl mb-4 italic">📞</div>
+            <h4 class="font-bold text-xs uppercase mb-2">Call Us</h4>
+            <p class="text-gray-500 text-[15px] mb-2 uppercase">24 HOUR</p>
+            <p class="text-white text-[14px] font-bold">+94 74 087 5089</p>
+             <p class="text-white text-[14px] font-bold">+94 70 141 2694</p>
+              <p class="text-white text-[14px] font-bold">+ +1 380 260 5028 </p>
+        </div>
+    </div>
+
+    <section class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 px-8 mb-32">
+        <div class="bg-black border border-white/5 rounded-[40px] p-12 flex flex-col justify-between" data-aos="fade-right">
+            <div>
+                <span class="px-4 py-1 border border-white/20 rounded-full text-[9px] uppercase text-gray-400">Say Hello</span>
+                <h2 class="text-5xl font-bold mt-12 mb-6 italic uppercase leading-tight">Interested in <br><span class="gold-gradient">working with</span> us?</h2>
+                <p class="text-gray-400 text-sm leading-relaxed mb-10"></p>
+            </div>
+            <div class="text-[9px] text-gray-600 uppercase tracking-widest">
+                Tired with forms? Just send us an email <br>
+                <span class="text-white mt-2 block italic text-xs">prymexai@gmail.com</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-6" data-aos="fade-left">
+            <div class="flex flex-col gap-2">
+                <label class="text-[10px] uppercase tracking-widest text-gray-500">Name</label>
+                <input type="text" placeholder="Your name" class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm outline-none">
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] uppercase tracking-widest text-gray-500">Email</label>
+                    <input type="email" placeholder="your.email@example.com" class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm outline-none">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] uppercase tracking-widest text-gray-500">Mobile</label>
+                    <input type="text" placeholder="+94 70 123 4567" class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm outline-none">
+                </div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="text-[10px] uppercase tracking-widest text-gray-500">Service</label>
+                <select class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm outline-none text-gray-400">
+                    <option>Select a service</option><option>Cyber Security</option><option>AI Solutions</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="text-[10px] uppercase tracking-widest text-gray-500">Message</label>
+                <textarea rows="4" placeholder="Tell us about your project..." class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm outline-none"></textarea>
+            </div>
+            <button class="bg-white text-black font-bold py-5 rounded-2xl hover:bg-yellow-500 transition-all uppercase tracking-widest text-[10px] mt-2">Send Message</button>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center">
+        <div class="flex justify-center gap-6 mb-8 uppercase tracking-[0.2em] text-[9px] text-gray-500">
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+        </div>
+        <p class="text-gray-600 text-[9px] uppercase tracking-[0.3em]">© 2026 Pryme X AI • USA - Sri Lanka</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        const cursor = document.getElementById('custom-cursor');
+        const follower = document.getElementById('cursor-follower');
+        window.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            setTimeout(() => { follower.style.left = (e.clientX - 11) + 'px'; follower.style.top = (e.clientY - 11) + 'px'; }, 60);
+        });
+        document.getElementById('mobile-menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
+    </script>
+</body>
+</html>

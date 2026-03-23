@@ -1,0 +1,102 @@
+/* --- Base & Hero Styles --- */
+body { 
+    background-color: #0d0d0d; 
+    color: white; 
+    font-family: 'Inter', sans-serif; 
+    overflow-x: hidden; 
+    cursor: none; 
+}
+
+.gold-gradient { 
+    background: linear-gradient(90deg, #FFD700, #B8860B); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+#custom-cursor { 
+    width: 8px; height: 8px; background: #FFD700; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10001; box-shadow: 0 0 10px #FFD700; 
+}
+
+#cursor-follower { 
+    width: 30px; height: 30px; border: 1px solid rgba(255, 215, 0, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.15s ease-out; 
+}
+
+.hero-banner { 
+    position: relative; 
+    background-image: url('banner one.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    height: 100vh; 
+}
+
+.hero-banner::before { 
+    content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 1; 
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.glass-card { 
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    transition: 0.3s; 
+}
+
+.glass-card:hover { border-color: #FFD700; transform: translateY(-5px); }
+
+/* --- Gold & White Preloader --- */
+#preloader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: #222222;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 20000;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader-content { text-align: center; }
+
+.logo-circle {
+    width: 100px; height: 100px;
+    border: 3px solid #FFD700;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    margin: 0 auto 20px;
+    animation: pulse 2s infinite;
+}
+
+.logo-text { font-size: 32px; font-weight: bold; color: #FFD700; }
+
+.company-name-load {
+    font-size: 28px; font-weight: 800; color: #fffbfb;
+    text-transform: uppercase; letter-spacing: 3px; margin-bottom: 5px;
+}
+
+.gold-text { color: #FFD700; }
+
+.tagline-load {
+    color: #ffffff; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px;
+}
+
+.loading-bar { width: 200px; height: 2px; background: #eeeeee; margin: 0 auto; position: relative; overflow: hidden; }
+
+.progress { width: 0; height: 100%; background: #FFD700; animation: load-progress 2.5s ease-in-out forwards; }
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+@keyframes load-progress { 0% { width: 0; } 100% { width: 100%; } }
+
+.loader-hidden { opacity: 0; visibility: hidden; }
+
+@media (max-width: 768px) { body { cursor: auto; } #custom-cursor, #cursor-follower { display: none; } }
+
+/* Chat Window ඇනිමේෂන් */
+#chat-window {
+    transition: all 0.3s ease;
+}
