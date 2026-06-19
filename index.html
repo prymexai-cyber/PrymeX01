@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mouse-animation.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <style>
 :root{
@@ -44,22 +45,21 @@
   --transition:0.35s cubic-bezier(0.4,0,0.2,1);
 }
 [data-theme="light"]{
-  --white:#0B0D13;
-  --offwhite:#0B0D13;
+  --graphite:#0F172A;
   --slate:#475569;
-  --slate-dim:#94A3B8;
+  --slate-dim:#64748B;
   --yellow-dim:rgba(217,160,5,0.08);
-  --border:rgba(15,23,42,0.08);
+  --border:rgba(15,23,42,0.1);
   --border-yellow:rgba(217,160,5,0.35);
   --border-hover:rgba(217,160,5,0.55);
   --text-primary:#0F172A;
   --text-secondary:#475569;
-  --text-muted:#94A3B8;
-  --bg-page:#FFFFFF;
-  --bg-section:#F8FAFC;
+  --text-muted:#64748B;
+  --bg-page:#F8FAFC;
+  --bg-section:#F1F5F9;
   --bg-card:#FFFFFF;
   --bg-card2:#F8FAFC;
-  --nav-bg:rgba(255,255,255,0.82);
+  --nav-bg:rgba(255,255,255,0.92);
   --shadow-yellow:0 0 30px rgba(217,160,5,0.08),0 20px 50px rgba(15,23,42,0.06);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -182,11 +182,13 @@ ul{list-style:none}
 
 /* ===== NAV ===== */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:900;
+  position:fixed;top:1.2rem;left:1.5rem;right:1.5rem;z-index:900;
   background:var(--nav-bg);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);
+  border-radius:50px;
   transition:background var(--transition),border-color var(--transition);
+  box-shadow:0 8px 32px rgba(0,0,0,0.1);
 }
 .nav-inner{
   max-width:1340px;margin:0 auto;padding:0 1.5rem;
@@ -289,21 +291,21 @@ section,.page-section{padding:6rem 1.5rem}
 
 /* ===== HERO with banner ===== */
 .hero{
-  position:relative;min-height:100vh;display:flex;align-items:flex-end;
-  overflow:hidden;padding:7.5rem 1.5rem 5rem;
+  position:relative;min-height:120vh;display:flex;align-items:flex-end;
+  overflow:hidden;padding:9rem 1.5rem 7rem;
 }
 .hero-banner-bg{
   position:absolute;inset:0;z-index:0;
-  background-image:url('banner_pryme.jpg');
+  background-image:url('banner pryme.jpg');
   background-size:cover;background-position:center 90%;
 }
 .hero-banner-mask{
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,
-    rgba(11,13,19,0.55) 0%,
-    rgba(11,13,19,0.15) 28%,
-    rgba(11,13,19,0.35) 55%,
-    rgba(11,13,19,0.88) 82%,
+    rgba(11,13,19,0.35) 0%,
+    rgba(11,13,19,0.05) 22%,
+    rgba(11,13,19,0.15) 48%,
+    rgba(11,13,19,0.82) 76%,
     var(--bg-page) 100%);
 }
 [data-theme="light"] .hero-banner-mask{
@@ -790,18 +792,15 @@ footer{background:var(--bg-section);border-top:1px solid var(--border);padding:4
   .leader-grid{grid-template-columns:1fr}
 }
 </style>
-<link rel="stylesheet" href="mouse-animation.css">
 </head>
 <body>
-<div id="cyber-canvas-container"></div>
-
 
 <!-- ============ PRELOADER ============ -->
 <div id="preloader">
   <div class="preloader-inner">
     <div class="preloader-brand">PRYME X <span class="gold">AI CYBER SOLUTIONS</span></div>
     <div class="preloader-tagline">Initializing Secure Environment</div>
-    <div class="preloader-logo-ring"><img src="logo_pryme.jpg" alt="Pryme X logo"></div>
+    <div class="preloader-logo-ring"><img src="logo pryme.jpg" alt="Pryme X logo"></div>
     <div class="robot-stage">
       <div class="robot-shadow"></div>
       <div class="humanoid">
@@ -824,7 +823,7 @@ footer{background:var(--bg-section);border-top:1px solid var(--border);padding:4
 <nav id="mainNav">
   <div class="nav-inner">
     <a href="#" class="nav-logo" onclick="goToPage('home');return false;">
-      <div class="logo-img"><img src="logo_pryme.jpg" alt="Pryme X"></div>
+      <div class="logo-img"><img src="logo pryme.jpg" alt="Pryme X"></div>
       <div class="logo-text">PRYME <span class="gold">X</span></div>
     </a>
     <div class="nav-links" id="navLinks">
@@ -1454,7 +1453,7 @@ footer{background:var(--bg-section);border-top:1px solid var(--border);padding:4
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-brand-row">
-          <div class="logo-img"><img src="logo_pryme.jpg" alt="Pryme X"></div>
+          <div class="logo-img"><img src="logo pryme.jpg" alt="Pryme X"></div>
           <span style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--text-primary)">PRYME <span class="gold">X</span></span>
         </div>
         <p>Engineering Artificial Intelligence, Cyber Security, 3D development, and digital design for European enterprise clients across the United States and Sri Lanka.</p>
@@ -2087,11 +2086,6 @@ chatInput.addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage(chatInpu
 
 /* ===================== INIT ===================== */
 document.querySelectorAll('#page-home .reveal').forEach(el=>el.classList.add('visible'));
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
 </script>
 
 </body>
