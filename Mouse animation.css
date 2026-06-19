@@ -1,26 +1,31 @@
-/* ===== CURSOR PARTICLE TRAIL CANVAS OVERLAY ===== */
-#cursorCanvas {
+/* ===== CYBER CURSOR PARTICLE TRAIL CANVAS OVERLAY ===== */
+#cyber-canvas-container {
   position: fixed;
   inset: 0;
   z-index: 9998;
   pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-/* ===== CUSTOM CURSOR AURA & DOT ===== */
+/* ===== PRYME CURSOR AURA: TRAILING DYNAMIC YELLOW NEON RING ===== */
 .pryme-cursor-aura {
   position: fixed;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.4), rgba(255, 215, 0, 0.05));
-  border: 2px solid rgba(255, 215, 0, 0.2);
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.05));
   pointer-events: none;
   z-index: 9997;
   transform: translate(-50%, -50%);
-  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3), inset 0 0 20px rgba(255, 215, 0, 0.1);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.15);
+  will-change: transform, box-shadow;
 }
 
+/* ===== PRYME CURSOR DOT: CORE YELLOW POINTER PARTICLE ===== */
 .pryme-cursor-dot {
   position: fixed;
   width: 8px;
@@ -30,118 +35,116 @@
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8), 0 0 24px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8), 0 0 24px rgba(255, 215, 0, 0.5);
+  will-change: transform;
 }
 
-/* ===== CURSOR HOVER SCALING ON INTERACTIVE ELEMENTS ===== */
-button:hover ~ .pryme-cursor-aura,
-a:hover ~ .pryme-cursor-aura,
-.nav-link:hover ~ .pryme-cursor-aura,
-.matrix-card:hover ~ .pryme-cursor-aura,
-.product-card:hover ~ .pryme-cursor-aura,
-.btn-primary-lg:hover ~ .pryme-cursor-aura,
-.btn-secondary-lg:hover ~ .pryme-cursor-aura {
-  transform: translate(-50%, -50%) scale(1.6);
-  box-shadow: 0 0 50px rgba(255, 215, 0, 0.5), inset 0 0 30px rgba(255, 215, 0, 0.2);
+/* ===== INTERACTIVE HOVER STATE: AURA SCALING & WHITE-GOLD GLOW ===== */
+.interactive-hovered .pryme-cursor-aura {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 215, 0, 0.7);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.5), rgba(255, 215, 0, 0.1));
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 215, 0, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.2);
+  animation: hoverGlowPulse 1.2s ease-in-out infinite;
 }
 
-/* ===== PARTICLE GLOW ANIMATIONS ===== */
-@keyframes particleGlow {
-  0% {
-    opacity: 1;
-    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+/* ===== HOVER GLOW PULSE ANIMATION ===== */
+@keyframes hoverGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 215, 0, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.2);
   }
   50% {
-    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.4));
+    box-shadow: 0 0 70px rgba(255, 215, 0, 0.8), 0 0 120px rgba(255, 215, 0, 0.5), inset 0 0 40px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* ===== CURSOR TRAIL PARTICLES ===== */
+.cursor-trail-particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFD700;
+  pointer-events: none;
+  z-index: 9996;
+  opacity: 0.6;
+  animation: particleGlow 0.8s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes particleGlow {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+  }
+  50% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
   }
   100% {
     opacity: 0;
+    transform: scale(0.3);
     filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.1));
   }
 }
 
-/* ===== HOVER GLOW PULSE ANIMATIONS ===== */
-@keyframes hoverGlowPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), 0 8px 24px rgba(255, 215, 0, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.35), 0 12px 32px rgba(255, 215, 0, 0.25);
-  }
+/* ===== CUSTOM CURSOR POINTER ===== */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2" fill="%23FFD700" opacity="0.8"/></svg>') 8 8, auto;
 }
 
-/* ===== CARD HOVER LIGHTING SHIFTS ===== */
-@keyframes cardLightingShift {
-  0% {
-    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
-  }
-  50% {
-    background: radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
-  }
-  100% {
-    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
-  }
+/* ===== NAV LINK INTERACTIVE STATES ===== */
+.nav-link:hover,
+.consultation-slot:hover,
+.service-card:hover,
+.matrix-card:hover {
+  position: relative;
 }
 
-/* ===== BORDER GLOW ANIMATION ===== */
-@keyframes borderGlow {
-  0%, 100% {
-    border-color: rgba(255, 215, 0, 0.3);
-    box-shadow: 0 0 12px rgba(255, 215, 0, 0.1);
-  }
-  50% {
-    border-color: rgba(255, 215, 0, 0.6);
-    box-shadow: 0 0 24px rgba(255, 215, 0, 0.25);
-  }
+.nav-link:hover::after,
+.consultation-slot:hover::after,
+.service-card:hover::after,
+.matrix-card:hover::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.2), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* ===== INTERACTIVE ELEMENT TRANSITIONS ===== */
-.interactive-element {
+/* ===== INTERACTIVE ELEMENT SCALING ===== */
+.nav-link,
+.consultation-slot,
+.service-card,
+.matrix-card {
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.interactive-element:hover {
-  animation: hoverGlowPulse 1.2s ease-in-out;
 }
 
 /* ===== PARTICLE CONNECTION LINES ===== */
 .particle-connection {
-  stroke: rgba(255, 215, 0, 0.15);
-  stroke-width: 0.5;
+  stroke: rgba(255, 215, 0, 0.2);
+  stroke-width: 1px;
   opacity: 0;
   animation: connectionFade 0.6s ease-out forwards;
 }
 
 @keyframes connectionFade {
   0% {
-    opacity: 0.3;
-    stroke-width: 0.8;
+    opacity: 0.4;
+    stroke-width: 1.2px;
   }
   100% {
     opacity: 0;
-    stroke-width: 0.5;
+    stroke-width: 0.5px;
   }
 }
 
-/* ===== SMOOTH SCALE & LIFT INTERACTION ===== */
-@keyframes liftAndGlow {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-2px) scale(1.01);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ===== RESPONSIVE PARTICLE SYSTEM SCALING ===== */
+/* ===== RESPONSIVE CURSOR SCALING ===== */
 @media (max-width: 768px) {
-  #cursorCanvas {
-    filter: brightness(0.9);
-  }
-  
   .pryme-cursor-aura {
     width: 40px;
     height: 40px;
@@ -152,40 +155,71 @@ a:hover ~ .pryme-cursor-aura,
     height: 6px;
   }
   
-  .particle-connection {
-    stroke-width: 0.3;
+  .cursor-trail-particle {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .interactive-hovered .pryme-cursor-aura {
+    width: 60px;
+    height: 60px;
   }
 }
 
-/* ===== DARK MODE PARTICLE GLOW INTENSITY ===== */
-[data-theme="dark"] #cursorCanvas {
+/* ===== DARK MODE PARTICLE INTENSITY ===== */
+[data-theme="dark"] #cyber-canvas-container {
   filter: brightness(1.2);
 }
 
-/* ===== LIGHT MODE PARTICLE DIMMING ===== */
-[data-theme="light"] #cursorCanvas {
-  filter: brightness(0.85) invert(0.08);
+.pryme-cursor-aura,
+.pryme-cursor-dot {
   mix-blend-mode: screen;
 }
 
-/* ===== INTERACTIVE CARD GLOW ON HOVER ===== */
-.matrix-card:hover,
-.product-card:hover,
-.leader-card:hover,
-.testimonial-card:hover,
-.case-study:hover {
-  animation: cardLightingShift 2s ease-in-out infinite;
+/* ===== LIGHT MODE PARTICLE ADJUSTMENT ===== */
+[data-theme="light"] #cyber-canvas-container {
+  filter: brightness(0.95);
+}
+
+[data-theme="light"] .pryme-cursor-aura {
+  border-color: rgba(217, 160, 5, 0.5);
+  background: radial-gradient(circle at 30% 30%, rgba(217, 160, 5, 0.3), rgba(217, 160, 5, 0.05));
+  box-shadow: 0 0 30px rgba(217, 160, 5, 0.3), inset 0 0 20px rgba(217, 160, 5, 0.1);
+}
+
+[data-theme="light"] .pryme-cursor-dot {
+  background: #CA8A04;
+  box-shadow: 0 0 12px rgba(217, 160, 5, 0.6), 0 0 24px rgba(217, 160, 5, 0.3);
+}
+
+[data-theme="light"] .cursor-trail-particle {
+  background: #CA8A04;
 }
 
 /* ===== ACCESSIBILITY: REDUCE MOTION SUPPORT ===== */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .pryme-cursor-aura,
+  .pryme-cursor-dot,
+  .cursor-trail-particle,
+  .nav-link,
+  .consultation-slot,
+  .service-card,
+  .matrix-card {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ===== TOUCH DEVICE CURSOR OVERRIDE ===== */
+@media (hover: none) and (pointer: coarse) {
+  .pryme-cursor-aura,
+  .pryme-cursor-dot,
+  .cursor-trail-particle {
+    display: none !important;
+  }
   
-  html {
-    scroll-behavior: auto;
+  body {
+    cursor: auto;
   }
 }
