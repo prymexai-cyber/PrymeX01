@@ -1,102 +1,147 @@
-/* --- Base & Hero Styles --- */
-body { 
-    background-color: #0d0d0d; 
-    color: white; 
-    font-family: 'Inter', sans-serif; 
-    overflow-x: hidden; 
-    cursor: none; 
+/* ===== CURSOR PARTICLE TRAIL CANVAS OVERLAY ===== */
+#cursorCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
 }
 
-.gold-gradient { 
-    background: linear-gradient(90deg, #FFD700, #B8860B); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
+/* ===== PARTICLE GLOW ANIMATIONS ===== */
+@keyframes particleGlow {
+  0% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.4));
+  }
+  100% {
+    opacity: 0;
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.1));
+  }
 }
 
-#custom-cursor { 
-    width: 8px; height: 8px; background: #FFD700; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10001; box-shadow: 0 0 10px #FFD700; 
+/* ===== HOVER GLOW PULSE ANIMATIONS ===== */
+@keyframes hoverGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), 0 8px 24px rgba(255, 215, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.35), 0 12px 32px rgba(255, 215, 0, 0.25);
+  }
 }
 
-#cursor-follower { 
-    width: 30px; height: 30px; border: 1px solid rgba(255, 215, 0, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.15s ease-out; 
+/* ===== CARD HOVER LIGHTING SHIFTS ===== */
+@keyframes cardLightingShift {
+  0% {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+  }
+  50% {
+    background: radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  }
+  100% {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+  }
 }
 
-.hero-banner { 
-    position: relative; 
-    background-image: url('banner one.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; 
-    height: 100vh; 
+/* ===== BORDER GLOW ANIMATION ===== */
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.1);
+  }
+  50% {
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.25);
+  }
 }
 
-.hero-banner::before { 
-    content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 1; 
+/* ===== INTERACTIVE ELEMENT TRANSITIONS ===== */
+.interactive-element {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-content { position: relative; z-index: 2; }
-
-.glass-card { 
-    background: rgba(255, 255, 255, 0.03); 
-    border: 1px solid rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(10px); 
-    transition: 0.3s; 
+.interactive-element:hover {
+  animation: hoverGlowPulse 1.2s ease-in-out;
 }
 
-.glass-card:hover { border-color: #FFD700; transform: translateY(-5px); }
-
-/* --- Gold & White Preloader --- */
-#preloader {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100vh;
-    background-color: #222222;
-    display: flex; justify-content: center; align-items: center;
-    z-index: 20000;
-    transition: opacity 0.8s ease, visibility 0.8s;
+/* ===== PARTICLE CONNECTION LINES ===== */
+.particle-connection {
+  stroke: rgba(255, 215, 0, 0.15);
+  stroke-width: 0.5;
+  opacity: 0;
+  animation: connectionFade 0.6s ease-out forwards;
 }
 
-.loader-content { text-align: center; }
-
-.logo-circle {
-    width: 100px; height: 100px;
-    border: 3px solid #FFD700;
-    border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    margin: 0 auto 20px;
-    animation: pulse 2s infinite;
+@keyframes connectionFade {
+  0% {
+    opacity: 0.3;
+    stroke-width: 0.8;
+  }
+  100% {
+    opacity: 0;
+    stroke-width: 0.5;
+  }
 }
 
-.logo-text { font-size: 32px; font-weight: bold; color: #FFD700; }
-
-.company-name-load {
-    font-size: 28px; font-weight: 800; color: #fffbfb;
-    text-transform: uppercase; letter-spacing: 3px; margin-bottom: 5px;
+/* ===== CUSTOM CURSOR POINTER ===== */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2" fill="%23FFD700" opacity="0.8"/></svg>') 8 8, auto;
 }
 
-.gold-text { color: #FFD700; }
-
-.tagline-load {
-    color: #ffffff; font-size: 10px;
-    text-transform: uppercase; letter-spacing: 5px; margin-bottom: 20px;
+/* ===== SMOOTH SCALE & LIFT INTERACTION ===== */
+@keyframes liftAndGlow {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 
-.loading-bar { width: 200px; height: 2px; background: #eeeeee; margin: 0 auto; position: relative; overflow: hidden; }
-
-.progress { width: 0; height: 100%; background: #FFD700; animation: load-progress 2.5s ease-in-out forwards; }
-
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+/* ===== RESPONSIVE PARTICLE SYSTEM SCALING ===== */
+@media (max-width: 768px) {
+  #cursorCanvas {
+    filter: brightness(0.9);
+  }
+  
+  .particle-connection {
+    stroke-width: 0.3;
+  }
 }
 
-@keyframes load-progress { 0% { width: 0; } 100% { width: 100%; } }
+/* ===== ACCESSIBILITY: REDUCE MOTION SUPPORT ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
 
-.loader-hidden { opacity: 0; visibility: hidden; }
+/* ===== DARK MODE PARTICLE GLOW INTENSITY ===== */
+[data-theme="dark"] #cursorCanvas {
+  filter: brightness(1.2);
+}
 
-@media (max-width: 768px) { body { cursor: auto; } #custom-cursor, #cursor-follower { display: none; } }
+/* ===== LIGHT MODE PARTICLE DIMMING ===== */
+[data-theme="light"] #cursorCanvas {
+  filter: brightness(0.85) invert(0.08);
+  mix-blend-mode: screen;
+}
 
-/* Chat Window ඇනිමේෂන් */
-#chat-window {
-    transition: all 0.3s ease;
+/* ===== INTERACTIVE CARD GLOW ON HOVER ===== */
+.matrix-card:hover,
+.product-card:hover,
+.leader-card:hover,
+.testimonial-card:hover,
+.case-study:hover {
+  animation: cardLightingShift 2s ease-in-out infinite;
 }
