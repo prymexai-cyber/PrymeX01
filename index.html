@@ -2184,5 +2184,130 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+  <div id="prymexCookieBanner" class="cookie-banner" style="display: none;">
+  <div class="cookie-content">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+      <i data-lucide="shield-check" style="color: var(--yellow); width: 20px; height: 20px;"></i>
+      <h3 style="margin: 0; color: var(--white); font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem;">PRYME X ENCRYPTED PROTOCOLS</h3>
+    </div>
+    <p style="margin: 0 0 16px 0; color: var(--slate); font-size: 0.85rem; line-height: 1.5;">
+      We deploy advanced security matrices and cookie-based telemetry to optimize your decentralized interface experience. By authorizing these nodes, you accept our defensive frameworks.
+    </p>
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <button id="btnAcceptCookies" class="cookie-btn" style="background: var(--yellow); color: var(--graphite); border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+        ACCEPT PROTOCOLS
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function initPrymeFixes() {
+    console.log("Pryme X Mobile & Cookie Repair Core Engaged.");
+
+    // --- A. COOKIE BANNER LOGIC ---
+    const cookieBanner = document.getElementById('prymexCookieBanner');
+    const acceptBtn = document.getElementById('btnAcceptCookies');
+
+    if (cookieBanner) {
+      if (!localStorage.getItem('prymex_cookies_accepted')) {
+        cookieBanner.style.setProperty('display', 'block', 'important');
+      }
+      
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+          localStorage.setItem('prymex_cookies_accepted', 'true');
+          cookieBanner.style.setProperty('display', 'none', 'important');
+        });
+      }
+    }
+
+    // --- B. MOBILE HAMBURGER MENU ENGINE ---
+    // HTML එකේ මොන නමකින් බටන් එක තිබ්බත් අහුවෙන්නSelectors කීපයක්ම දැම්මා
+    const menuBtn = document.querySelector('.mobile-menu-toggle') || 
+                    document.getElementById('menuToggle') || 
+                    document.querySelector('[aria-label="Open menu"]') ||
+                    document.querySelector('.nav-toggle');
+                    
+    const menuDrawer = document.querySelector('.mobile-menu-container') || 
+                       document.querySelector('.mobile-drawer') || 
+                       document.getElementById('mobileMenu');
+                       
+    const closeBtn = document.querySelector('.close-menu') || 
+                     document.getElementById('closeMenu') ||
+                     document.querySelector('.mobile-menu-close');
+
+    if (menuBtn && menuDrawer) {
+      // පරණ Click Events ඔක්කොම ක්ලියර් කරලා අලුතින්ම දෙනවා
+      menuBtn.style.cursor = 'pointer';
+      menuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        menuDrawer.classList.toggle('active');
+        // ජාවාස්ක්‍රිප්ට් එකෙන් බලෙන්ම පෙන්වීම (CSS අවුල් තිබ්බොත් හරි යන්න)
+        if (menuDrawer.classList.contains('active')) {
+          menuDrawer.style.setProperty('display', 'flex', 'important');
+          menuDrawer.style.setProperty('opacity', '1', 'important');
+          menuDrawer.style.setProperty('visibility', 'visible', 'important');
+        } else {
+          menuDrawer.style.setProperty('display', 'none', 'important');
+        }
+      });
+    }
+
+    if (closeBtn && menuDrawer) {
+      closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        menuDrawer.classList.remove('active');
+        menuDrawer.style.setProperty('display', 'none', 'important');
+      });
+    }
+
+    // මෙනු එකේ ලින්ක් එකක් ක්ලික් කරාම මෙනු එක වැහෙන්න
+    const links = document.querySelectorAll('.mobile-menu-container a, .mobile-drawer a');
+    links.forEach(l => {
+      l.addEventListener('click', () => {
+        if (menuDrawer) {
+          menuDrawer.classList.remove('active');
+          menuDrawer.style.setProperty('display', 'none', 'important');
+        }
+      });
+    });
+
+    // --- C. CHATBOT RESET ENGINE ---
+    // කලින් හිරවුණ හැමදේම නැවත පණ ගැන්වීම
+    const chatFab = document.getElementById('chatFab');
+    const chatWidget = document.getElementById('chatWidget');
+    const chatClose = document.getElementById('chatClose');
+
+    if (chatFab && chatWidget) {
+      chatFab.addEventListener('click', function(e) {
+        e.preventDefault();
+        chatWidget.classList.toggle('open');
+      });
+    }
+    if (chatClose && chatWidget) {
+      chatClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        chatWidget.classList.remove('open');
+      });
+    }
+
+    // Lucide Icons Render කිරීම
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
+  // පිටුව Load වුණු ගමන් වගේම Safe සයිඩ් එකට තත්පරයකට පස්සෙත් මේක රන් කරනවා
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPrymeFixes);
+  } else {
+    initPrymeFixes();
+  }
+  setTimeout(initPrymeFixes, 1200);
+})();
+</script>
 </body>
 </html>
