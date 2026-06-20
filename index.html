@@ -2309,5 +2309,118 @@ document.addEventListener("DOMContentLoaded", function() {
   setTimeout(initPrymeFixes, 1200);
 })();
 </script>
+  <style>
+  /* මොබයිල් එකේ CSS පටලැවිල්ල (Drawer vs Container) මෙතනින් බලෙන්ම විසඳනවා */
+  @media (max-width: 768px) {
+    .mobile-menu-container {
+      display: none !important; /* Default hidden */
+      position: fixed !important;
+      top: 0; left: 0; width: 100%; height: 100vh;
+      background: rgba(11, 13, 19, 0.99) !important;
+      z-index: 999999 !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 25px !important;
+    }
+    .mobile-menu-container.active {
+      display: flex !important; /* Click කළාම විතරක් පෙන්වීමට */
+    }
+  }
+
+  /* Cookie Banner එක ඩිවයිස් දෙකේම හැමදේටම උඩින් මැදට පෙන්වීමට */
+  #productionCookieBanner {
+    position: fixed !important;
+    bottom: 24px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 48px) !important;
+    max-width: 600px !important;
+    background: #171C28 !important;
+    border: 1px solid #FFD700 !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    z-index: 1000000 !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8) !important;
+  }
+  @media (max-width: 768px) {
+    #productionCookieBanner {
+      width: calc(100% - 32px) !important;
+      bottom: 16px !important;
+      padding: 16px !important;
+    }
+  }
+</style>
+
+<div id="productionCookieBanner" style="display: none;">
+  <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <i data-lucide="shield-check" style="color: #FFD700; width: 20px; height: 20px;"></i>
+    <h3 style="margin: 0; color: #FFFFFF; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; letter-spacing: 0.5px;">PRYME X ENCRYPTED PROTOCOLS</h3>
+  </div>
+  <p style="margin: 0 0 16px 0; color: #94A3B8; font-size: 0.85rem; line-height: 1.5;">
+    We deploy advanced security matrices and cookie-based telemetry to optimize your decentralized interface experience. By authorizing these nodes, you accept our defensive frameworks.
+  </p>
+  <button id="btnAcceptProductionCookies" style="background: #FFD700; color: #0B0D13; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; width: 100%; font-family: 'Space Grotesk', sans-serif; transition: all 0.2s;">
+    ACCEPT PROTOCOLS
+  </button>
+</div>
+
+<script>
+(function() {
+  function startPrymeProductionEngine() {
+    console.log("Pryme X Production Engine Engaged.");
+
+    // --- COOKIE PROTOCOL FIXED ---
+    const banner = document.getElementById('productionCookieBanner');
+    const acceptBtn = document.getElementById('btnAcceptProductionCookies');
+    if (banner && !localStorage.getItem('prymex_cookies_accepted')) {
+      banner.style.setProperty('display', 'block', 'important');
+    }
+    if (acceptBtn && banner) {
+      acceptBtn.addEventListener('click', function() {
+        localStorage.setItem('prymex_cookies_accepted', 'true');
+        banner.style.setProperty('display', 'none', 'important');
+      });
+    }
+
+    // --- HAMBURGER MENU FIXED ---
+    const menuToggle = document.getElementById('menuToggle') || document.querySelector('.mobile-menu-toggle');
+    const mobileDrawer = document.querySelector('.mobile-menu-container');
+    const closeMenu = document.getElementById('closeMenu') || document.querySelector('.close-menu');
+
+    if (menuToggle && mobileDrawer) {
+      menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        mobileDrawer.classList.add('active');
+      });
+    }
+
+    if (closeMenu && mobileDrawer) {
+      closeMenu.addEventListener('click', function(e) {
+        e.preventDefault();
+        mobileDrawer.classList.remove('active');
+      });
+    }
+
+    // මෙනු ලින්ක් එකක් ක්ලික් කරපු ගමන් මෙනු එක වැහෙන්න
+    document.querySelectorAll('.mobile-menu-container a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileDrawer) mobileDrawer.classList.remove('active');
+      });
+    });
+
+    // Icons Render කිරීමට
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startPrymeProductionEngine);
+  } else {
+    startPrymeProductionEngine();
+  }
+  setTimeout(startPrymeProductionEngine, 1000); // Safe fallback
+})();
+</script>
 </body>
 </html>
