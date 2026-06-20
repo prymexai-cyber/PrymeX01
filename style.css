@@ -251,3 +251,41 @@ body {
     gap: 16px !important;
   }
 }
+
+/* ==========================================================================
+   PRYME X SYSTEM — MOBILE MENU & COOKIE BANNER REPAIR CORE
+   ========================================================================== */
+
+/* මොබයිල් මෙනු එක Display කරවන Class එක */
+.mobile-menu-container.active {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* ඩිවයිස් දෙකේම Cookie Banner එක බලෙන්ම පෙන්වීමට */
+.cookie-banner {
+  position: fixed !important;
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% - 48px) !important;
+  max-width: 600px !important;
+  background: rgba(23, 28, 40, 0.95) !important;
+  border: 1px solid rgba(255, 215, 0, 0.3) !important;
+  padding: 20px !important;
+  border-radius: 12px !important;
+  z-index: 999999 !important; /* හැමදේටම උඩින් පේන්න */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  display: block !important; /* Hidden වෙලා තිබ්බොත් Unhide කරයි */
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    width: calc(100% - 32px) !important;
+    bottom: 16px !important;
+    padding: 16px !important;
+  }
+}
