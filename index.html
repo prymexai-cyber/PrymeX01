@@ -2134,6 +2134,55 @@ chatInput.addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage(chatInpu
 /* ===================== INIT ===================== */
 document.querySelectorAll('#page-home .reveal').forEach(el=>el.classList.add('visible'));
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. මොබයිල් ඉරි කෑලි 3 ක්ලික් එක හදන ක්‍රමය
+  const menuToggle = document.querySelector('.mobile-menu-toggle') || document.getElementById('menuToggle');
+  const mobileDrawer = document.querySelector('.mobile-menu-container');
+  const closeMenuBtn = document.querySelector('.close-menu') || document.getElementById('closeMenu');
 
+  if (menuToggle && mobileDrawer) {
+    menuToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      mobileDrawer.classList.toggle('active');
+    });
+  }
+
+  if (closeMenuBtn && mobileDrawer) {
+    closeMenuBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      mobileDrawer.classList.remove('active');
+    });
+  }
+
+  // මොබයිල් මෙනු එකේ ලින්ක් එකක් ක්ලික් කරාම මෙනු එක වැහිලා පිටුවට යන්න
+  const mobileLinks = document.querySelectorAll('.mobile-menu-container a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileDrawer) mobileDrawer.classList.remove('active');
+    });
+  });
+
+  // 2. Cookie Consent එක වැඩ කරවන ක්‍රමය
+  const cookieBanner = document.querySelector('.cookie-banner');
+  const acceptBtn = document.querySelector('.cookie-btn') || document.getElementById('acceptCookies');
+
+  // කලින් Accept කරලා නැත්නම් විතරක් පෙන්වන්න
+  if (cookieBanner) {
+    if (!localStorage.getItem('prymex_cookies_accepted')) {
+      cookieBanner.style.setProperty('display', 'block', 'important');
+    } else {
+      cookieBanner.style.setProperty('display', 'none', 'important');
+    }
+  }
+
+  if (acceptBtn && cookieBanner) {
+    acceptBtn.addEventListener('click', function() {
+      localStorage.setItem('prymex_cookies_accepted', 'true');
+      cookieBanner.style.setProperty('display', 'none', 'important');
+    });
+  }
+});
+</script>
 </body>
 </html>
