@@ -223,3 +223,41 @@ body {
     cursor: auto;
   }
 }
+
+/* ===================== PRYME X SYSTEM MOBILE RESPONSIVE FIX ===================== */
+@media (max-width: 768px) {
+  /* Phone එකේදී අකුරු එක පිට එක වැදීම සහ කන්ඩෙන්ට් කැපීම වැළැක්වීම */
+  .container {
+    width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  /* Grid Layout ඔක්කොම මොබයිල් එකට ගැලපෙන සේ තනි පේළියට සැකසීම */
+  .services-grid, .grid, .dashboard-grid, .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  /* මොබයිල් එකේදී Heading Text ප්‍රමාණයන් ස්වයංක්‍රීයව කුඩා කිරීම */
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  h2 {
+    font-size: 1.6rem !important;
+  }
+
+  /* Hero Section එකේ background image එක ෆෝන් එකට ලස්සනට මැදි කිරීම */
+  #page-home {
+    background-size: cover !important;
+    background-position: center !important;
+    padding-top: 90px !important;
+  }
+
+  /* Navigation Links මොබයිල් එකේදී එක පිට එක වැටීම වැළැක්වීම */
+  nav ul {
+    gap: 10px !important;
+  }
+}
