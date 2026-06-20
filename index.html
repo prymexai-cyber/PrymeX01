@@ -2512,5 +2512,98 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+  <script>
+(function() {
+  function forceEngagePrymeCore() {
+    console.log("Pryme X System: Initializing Safe Recovery Engine...");
+
+    // --- 1. CHATBOT EVENT RESET & REPAIR ---
+    // HTML එකේ තියෙන ඔරිජිනල් Chatbot Elements ID හරියටම අල්ලනවා
+    const chatFab = document.getElementById('chatFab');
+    const chatWidget = document.getElementById('chatWidget');
+    const chatClose = document.getElementById('chatClose');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const chatMessages = document.getElementById('chatMessages');
+
+    // පරණ හිරවුණු click events අයින් කරන්නත් එක්ක අලුතින්ම Event Listeners දෙනවා
+    if (chatFab && chatWidget) {
+      chatFab.style.cursor = 'pointer';
+      // පරණ inline onclick තිබ්බොත් ඒවා අයින් කරනවා
+      chatFab.removeAttribute('onclick'); 
+      
+      chatFab.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        chatWidget.classList.toggle('open');
+        console.log("Chat widget state toggled.");
+      });
+    }
+
+    if (chatClose && chatWidget) {
+      chatClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        chatWidget.classList.remove('open');
+      });
+    }
+
+    // --- 2. MOBILE HAMBURGER MENU REPAIR ---
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.querySelector('.mobile-menu-container');
+    const closeMenu = document.getElementById('closeMenu') || document.querySelector('.close-menu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        mobileMenu.classList.toggle('active');
+      });
+    }
+
+    if (closeMenu && mobileMenu) {
+      closeMenu.addEventListener('click', function(e) {
+        e.preventDefault();
+        mobileMenu.classList.remove('active');
+      });
+    }
+
+    // මෙනු ලින්ක් එකක් ක්ලික් කරපු ගමන් මොබයිල් ඩ්‍රෝවර් එක වැහෙන්න
+    document.querySelectorAll('.mobile-menu-container a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu) mobileMenu.classList.remove('active');
+      });
+    });
+
+    // --- 3. TELEMETRY COOKIE BANNER ENGINE ---
+    const cookieBanner = document.getElementById('cookieBanner') || document.querySelector('.cookie-banner');
+    const acceptCookies = document.getElementById('acceptCookies');
+
+    if (cookieBanner) {
+      if (!localStorage.getItem('prymex_cookies_accepted')) {
+        cookieBanner.style.setProperty('display', 'block', 'important');
+      }
+      if (acceptCookies) {
+        acceptCookies.addEventListener('click', function() {
+          localStorage.setItem('prymex_cookies_accepted', 'true');
+          cookieBanner.style.setProperty('display', 'none', 'important');
+        });
+      }
+    }
+
+    // Icons Render කිරීමට Lucide කැඳවීම
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
+  // පිටුව Load වුණු ගමන් වගේම සේෆ් සයිඩ් එකට තත්පරයකට පස්සෙත් මේක රන් කරවනවා
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', forceEngagePrymeCore);
+  } else {
+    forceEngagePrymeCore();
+  }
+  setTimeout(forceEngagePrymeCore, 1500);
+})();
+</script>
 </body>
 </html>
