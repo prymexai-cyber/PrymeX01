@@ -183,3 +183,71 @@ body {
     gap: 10px !important;
   }
 }
+
+/* ==========================================================================
+   PRYME X SECURITY MATRIX — ULTIMATE MOBILE AUTO-LAYOUT REPAIR
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. Hero Section එක සහ Lotus Tower Background එක ෆෝන් එකට මැදි කිරීම */
+  #page-home {
+    min-height: 100vh !important;
+    padding-top: 130px !important; /* Header එකට යටවීම වැළැක්වීම */
+    padding-bottom: 60px !important;
+    background-size: cover !important;
+    background-position: center 20% !important; /* ලෝටස් ටවර් එක ලස්සනට පේන්න */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  /* 2. Overlap වෙන ප්‍රධාන අකුරු (Heading) ෆෝන් එකට ගැලපෙන්න කුඩා කිරීම */
+  #page-home h1, 
+  #page-home .reveal {
+    font-size: 2.2rem !important; /* බලෙන්ම අකුරු ප්‍රමාණය අඩු කරයි */
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* 3. Hero Description එක එක පිට එක වැදීම වැළැක්වීම */
+  #page-home p.hero-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 25px !important;
+    padding: 0 10px !important;
+  }
+
+  /* 4. වීඩියෝ එකේ ඔක්කොම වහගෙන තිබ්බ Cookie Banner (Protocols Box) එක හැදීම */
+  .cookie-banner {
+    width: calc(100% - 32px) !important;
+    left: 16px !important;
+    bottom: 16px !important;
+    padding: 16px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .cookie-banner h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .cookie-banner p {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .cookie-btn {
+    width: 100% !important; /* බටන් එක ෆුල් පළලට ගනී */
+    padding: 10px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* 5. අනිත් පිටුවල Grids කැපෙන්නේ නැතුව තනි පේළියට හැදීම */
+  .services-grid, .grid, .dashboard-grid, .features-grid, .board-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
