@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pryme X AI Cyber Solutions</title>
+  <link rel="icon" type="image/jpeg" href="logo pryme.jpg">
+<link rel="apple-touch-icon" href="logo pryme.jpg">
+<meta name="description" content="Pryme X AI Cyber Solutions — Artificial Intelligence, Cyber Security, 3D Development and Digital Engineering for European enterprise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mouse-animation.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{
+  --graphite:#0B0D13;
+  --graphite-2:#121620;
+  --graphite-card:#171C28;
+  --graphite-card2:#1B202E;
+  --white:#FFFFFF;
+  --offwhite:#F8FAFC;
+  --slate:#94A3B8;
+  --slate-dim:#5B6678;
+  --yellow:#FFD700;
+  --amber:#FACC15;
+  --yellow-dim:rgba(255,215,0,0.1);
+  --yellow-glow:rgba(255,215,0,0.3);
+  --border:rgba(255,255,255,0.08);
+  --border-yellow:rgba(255,215,0,0.3);
+  --border-hover:rgba(255,215,0,0.5);
+  --text-primary:#FFFFFF;
+  --text-secondary:#94A3B8;
+  --text-muted:#5B6678;
+  --bg-page:#0B0D13;
+  --bg-section:#121620;
+  --bg-card:#171C28;
+  --bg-card2:#1B202E;
+  --nav-bg:rgba(11,13,19,0.78);
+  --shadow-yellow:0 0 40px rgba(255,215,0,0.12),0 24px 60px rgba(0,0,0,0.5);
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:22px;
+  --radius-xl:30px;
+  --transition:0.35s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="light"]{
+  --graphite:#0F172A;
+  --slate:#475569;
+  --slate-dim:#64748B;
+  --yellow-dim:rgba(217,160,5,0.08);
+  --border:rgba(15,23,42,0.1);
+  --border-yellow:rgba(217,160,5,0.35);
+  --border-hover:rgba(217,160,5,0.55);
+  --text-primary:#0F172A;
+  --text-secondary:#475569;
+  --text-muted:#64748B;
+  --bg-page:#F8FAFC;
+  --bg-section:#F1F5F9;
+  --bg-card:#FFFFFF;
+  --bg-card2:#F8FAFC;
+  --nav-bg:rgba(255,255,255,0.92);
+  --shadow-yellow:0 0 30px rgba(217,160,5,0.08),0 20px 50px rgba(15,23,42,0.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg-page);
+  color:var(--text-primary);
+  overflow-x:hidden;
+  line-height:1.6;
+  transition:background var(--transition),color var(--transition);
+}
+body.no-scroll{overflow:hidden}
+::-webkit-scrollbar{width:7px}
+::-webkit-scrollbar-track{background:var(--bg-page)}
+::-webkit-scrollbar-thumb{background:var(--yellow);border-radius:4px}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:var(--font-body)}
+img{max-width:100%;display:block}
+ul{list-style:none}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ===== PRELOADER ===== */
+#preloader{
+  position:fixed;inset:0;z-index:10000;
+  background:var(--graphite);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity 0.8s ease,visibility 0.8s ease;
+}
+#preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-inner{width:min(420px,86vw);text-align:center}
+.preloader-brand{
+  font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:#fff;
+  letter-spacing:-0.01em;margin-bottom:0.3rem;
+}
+.preloader-brand .gold{color:var(--yellow)}
+.preloader-tagline{
+  font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#5B6678;
+  margin-bottom:2.25rem;
+}
+.preloader-logo-ring{
+  width:84px;height:84px;margin:0 auto 2.5rem;border-radius:50%;overflow:hidden;
+  border:1.5px solid var(--yellow);box-shadow:0 0 36px rgba(255,215,0,0.25);
+  animation:ringPulse 2.2s ease-in-out infinite;
+}
+@keyframes ringPulse{0%,100%{box-shadow:0 0 26px rgba(255,215,0,0.2)}50%{box-shadow:0 0 48px rgba(255,215,0,0.4)}}
+.preloader-logo-ring img{width:100%;height:100%;object-fit:cover}
+
+/* Humanoid running robot — pure CSS jointed limbs */
+.robot-stage{
+  position:relative;width:100%;height:120px;margin-bottom:2rem;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.robot-shadow{
+  position:absolute;bottom:6px;left:50%;width:46px;height:8px;
+  transform:translateX(-50%);border-radius:50%;
+  background:rgba(255,215,0,0.18);
+  animation:shadowPulse 0.5s ease-in-out infinite;
+}
+@keyframes shadowPulse{0%,100%{transform:translateX(-50%) scaleX(1);opacity:0.5}50%{transform:translateX(-50%) scaleX(0.82);opacity:0.3}}
+.humanoid{
+  position:relative;width:54px;height:104px;
+  animation:bodyBob 0.5s ease-in-out infinite;
+}
+@keyframes bodyBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.h-head{
+  position:absolute;top:0;left:50%;width:20px;height:20px;
+  transform:translateX(-50%);border-radius:7px;
+  background:#171C28;border:1.5px solid var(--yellow);
+}
+[data-theme="light"] .h-head{background:#F8FAFC}
+.h-head::before,.h-head::after{
+  content:'';position:absolute;top:7px;width:3px;height:3px;border-radius:50%;
+  background:var(--yellow);animation:robotBlink 1.6s infinite;
+}
+.h-head::before{left:4px}
+.h-head::after{right:4px}
+@keyframes robotBlink{0%,85%,100%{opacity:1}90%{opacity:0.15}}
+.h-torso{
+  position:absolute;top:20px;left:50%;width:22px;height:28px;
+  transform:translateX(-50%);border-radius:6px;
+  background:#171C28;border:1.5px solid var(--yellow);
+}
+[data-theme="light"] .h-torso{background:#F8FAFC}
+.h-torso::before{
+  content:'';position:absolute;top:9px;left:50%;width:10px;height:2px;
+  transform:translateX(-50%);background:var(--yellow);opacity:0.6;border-radius:1px;
+}
+.h-arm{
+  position:absolute;top:23px;width:5px;height:22px;border-radius:3px;
+  background:var(--yellow);transform-origin:top center;
+}
+.h-arm.left{left:9px;animation:armSwingL 0.5s ease-in-out infinite}
+.h-arm.right{right:9px;animation:armSwingR 0.5s ease-in-out infinite}
+@keyframes armSwingL{0%,100%{transform:rotate(35deg)}50%{transform:rotate(-35deg)}}
+@keyframes armSwingR{0%,100%{transform:rotate(-35deg)}50%{transform:rotate(35deg)}}
+.h-leg{
+  position:absolute;top:46px;width:6px;height:26px;border-radius:3px;
+  background:#2A3142;border:1px solid var(--yellow);transform-origin:top center;
+}
+[data-theme="light"] .h-leg{background:#E2E8F0}
+.h-leg.left{left:14px;animation:legSwingL 0.5s ease-in-out infinite}
+.h-leg.right{right:14px;animation:legSwingR 0.5s ease-in-out infinite}
+@keyframes legSwingL{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(30deg)}}
+@keyframes legSwingR{0%,100%{transform:rotate(30deg)}50%{transform:rotate(-30deg)}}
+
+.preloader-percent-big{
+  font-family:var(--font-display);font-size:2.1rem;font-weight:700;color:var(--yellow);
+  letter-spacing:-0.02em;line-height:1;
+}
+.preloader-percent-label{
+  font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#5B6678;
+  margin-top:0.4rem;
+}
+
+/* ===== CURSOR PARTICLE CANVAS ===== */
+#cursorCanvas{
+  position:fixed;inset:0;z-index:9998;pointer-events:none;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:1.2rem;left:1.5rem;right:1.5rem;z-index:900;
+  background:var(--nav-bg);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);
+  border-radius:50px;
+  transition:background var(--transition),border-color var(--transition);
+  box-shadow:0 8px 32px rgba(0,0,0,0.1);
+}
+.nav-inner{
+  max-width:1340px;margin:0 auto;padding:0 1.5rem;
+  height:78px;display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.logo-img{
+  width:40px;height:40px;border-radius:50%;overflow:hidden;
+  border:1.5px solid var(--yellow);flex-shrink:0;
+}
+.logo-img img{width:100%;height:100%;object-fit:cover}
+.logo-text{font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:-0.01em;color:var(--text-primary)}
+.logo-text .gold{color:var(--yellow)}
+.nav-links{display:flex;align-items:center;gap:0.2rem}
+.nav-link{
+  font-size:0.86rem;font-weight:500;color:var(--text-secondary);
+  padding:9px 16px;border-radius:100px;transition:all var(--transition);
+}
+.nav-link:hover{color:var(--text-primary)}
+.nav-link.active{color:var(--graphite);background:var(--yellow);font-weight:600}
+[data-theme="light"] .nav-link.active{color:#0B0D13}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.theme-toggle{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border);background:var(--bg-card);
+  color:var(--text-secondary);transition:all var(--transition);
+}
+.theme-toggle:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn-nav-cta{
+  padding:10px 22px;border-radius:100px;background:var(--yellow);color:var(--graphite);
+  font-size:0.85rem;font-weight:700;font-family:var(--font-display);
+  display:flex;align-items:center;gap:8px;transition:all var(--transition);
+  box-shadow:0 4px 18px rgba(255,215,0,0.22);
+}
+.btn-nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 26px rgba(255,215,0,0.36)}
+.hamburger{
+  display:none;width:42px;height:42px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);background:var(--bg-card);
+  color:var(--text-primary);align-items:center;justify-content:center;
+}
+.mobile-drawer{
+  position:fixed;top:0;right:-100%;width:min(320px,85vw);height:100vh;z-index:1001;
+  background:var(--bg-section);border-left:1px solid var(--border-yellow);
+  transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
+  display:flex;flex-direction:column;padding:1.5rem;
+}
+.mobile-drawer.open{right:0}
+.drawer-close{
+  align-self:flex-end;width:38px;height:38px;border-radius:50%;
+  background:var(--bg-card);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--text-primary);margin-bottom:2rem;
+}
+.drawer-links{display:flex;flex-direction:column;gap:0.4rem}
+.drawer-link{
+  font-size:1.02rem;font-weight:500;color:var(--text-secondary);
+  padding:14px 16px;border-radius:var(--radius-md);
+  border-bottom:1px solid var(--border);transition:all var(--transition);
+}
+.drawer-link.active,.drawer-link:hover{color:var(--graphite);background:var(--yellow)}
+[data-theme="light"] .drawer-link.active,[data-theme="light"] .drawer-link:hover{color:#0B0D13}
+.drawer-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;
+  opacity:0;visibility:hidden;transition:all var(--transition);
+}
+.drawer-overlay.open{opacity:1;visibility:visible}
+
+/* ===== PAGE SYSTEM ===== */
+.page{display:none;animation:pageIn 0.5s ease}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+main{padding-top:78px;min-height:100vh}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ===== SHARED LAYOUT ===== */
+.section-inner{max-width:1340px;margin:0 auto;padding:0 1.5rem}
+section,.page-section{padding:6rem 1.5rem}
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:1.25rem;
+}
+[data-theme="light"] .section-eyebrow{color:#A16207}
+.section-eyebrow::before{content:'';width:26px;height:1.5px;background:var(--yellow)}
+.section-title{
+  font-family:var(--font-display);font-size:clamp(2.1rem,3.6vw,3.1rem);
+  font-weight:700;line-height:1.14;letter-spacing:-0.025em;margin-bottom:1.15rem;
+  color:var(--text-primary);
+}
+.section-title .gold{color:var(--yellow)}
+[data-theme="light"] .section-title .gold{color:#CA8A04}
+.section-desc{font-size:1.05rem;color:var(--text-secondary);max-width:640px;line-height:1.75}
+
+/* ===== HERO with banner ===== */
+.hero{
+  position:relative;min-height:120vh;display:flex;align-items:flex-end;
+  overflow:hidden;padding:9rem 1.5rem 7rem;
+}
+.hero-banner-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:url('banner pryme.jpg');
+  background-size:cover;background-position:center 90%;
+}
+.hero-banner-mask{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,
+    rgba(11,13,19,0.35) 0%,
+    rgba(11,13,19,0.05) 22%,
+    rgba(11,13,19,0.15) 48%,
+    rgba(11,13,19,0.82) 76%,
+    var(--bg-page) 100%);
+}
+[data-theme="light"] .hero-banner-mask{
+  background:linear-gradient(180deg,
+    rgba(255, 255, 255, 0.115) 0%,
+    rgba(255,255,255,0.1) 28%,
+    rgba(255,255,255,0.3) 55%,
+    rgba(255, 255, 255, 0.185) 50%,
+    #ffffff1c 100%);
+}
+.hero-grain{
+  position:absolute;inset:0;z-index:2;opacity:0.5;
+  background-image:linear-gradient(rgba(255,215,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,215,0,0.025) 1px,transparent 1px);
+  background-size:46px 46px;
+  mask-image:radial-gradient(ellipse 75% 65% at 50% 35%,#000 30%,transparent 100%);
+}
+.hero-content{
+  position:relative;z-index:10;max-width:980px;margin:0 auto;text-align:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--yellow-dim);border:1px solid var(--border-yellow);
+  border-radius:100px;padding:7px 18px;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--yellow);
+  margin-bottom:1.75rem;
+}
+[data-theme="light"] .hero-badge{color:#A16207}
+.badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--yellow);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.6)}}
+.hero-title{
+  font-family:var(--font-display);font-size:clamp(2.6rem,5.4vw,4.6rem);
+  font-weight:800;line-height:1.06;letter-spacing:-0.035em;margin-bottom:1.5rem;
+  color:var(--text-primary);
+  text-shadow:0 2px 24px rgba(0,0,0,0.45);
+}
+[data-theme="light"] .hero-title{text-shadow:0 2px 20px rgba(255,255,255,0.6)}
+.hero-title .gold{color:var(--yellow)}
+[data-theme="light"] .hero-title .gold{color:#CA8A04}
+.hero-desc{
+  font-size:1.15rem;color:var(--text-secondary);line-height:1.75;margin-bottom:2.5rem;
+  max-width:620px;margin-left:auto;margin-right:auto;
+  text-shadow:0 1px 14px rgba(0,0,0,0.4);
+}
+[data-theme="light"] .hero-desc{text-shadow:0 1px 12px rgba(255,255,255,0.55)}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+.btn-primary-lg{
+  padding:16px 32px;border-radius:var(--radius-md);background:var(--yellow);color:var(--graphite);
+  font-size:0.98rem;font-weight:700;font-family:var(--font-display);
+  display:flex;align-items:center;gap:10px;transition:all var(--transition);
+  box-shadow:0 8px 30px rgba(255,215,0,0.22);
+}
+.btn-primary-lg:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,215,0,0.38)}
+.btn-secondary-lg{
+  padding:16px 32px;border-radius:var(--radius-md);
+  border:1px solid var(--border);background:var(--bg-card);
+  color:var(--text-primary);font-size:0.98rem;font-weight:500;font-family:var(--font-display);
+  display:flex;align-items:center;gap:10px;transition:all var(--transition);
+}
+.btn-secondary-lg:hover{border-color:var(--yellow);box-shadow:0 0 22px rgba(255,215,0,0.1)}
+.hero-footprint{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:0.88rem;color:var(--text-muted);
+}
+.hero-footprint svg{width:16px;height:16px;stroke:var(--yellow)}
+.hero-footprint strong{color:var(--text-primary);font-weight:600}
+
+/* ===== STATS BAR ===== */
+.stats-bar{
+  background:var(--bg-section);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  position:relative;z-index:5;
+}
+.stats-inner{
+  max-width:1340px;margin:0 auto;padding:2.75rem 1.5rem;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+}
+.stat-item{text-align:center;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-number{font-family:var(--font-display);font-size:2.3rem;font-weight:700;color:var(--yellow)}
+[data-theme="light"] .stat-number{color:#CA8A04}
+.stat-label{font-size:0.82rem;color:var(--text-muted);margin-top:4px}
+
+/* ===== SOLUTIONS MATRIX (14 cards) ===== */
+.matrix-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.4rem;margin-top:3rem;perspective:1200px}
+.matrix-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:1.75rem;transition:transform 0.15s ease-out,border-color var(--transition),box-shadow var(--transition);
+  position:relative;overflow:hidden;transform-style:preserve-3d;will-change:transform;
+}
+.matrix-card::before{
+  content:'';position:absolute;inset:0;border-radius:var(--radius-lg);
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--yellow-dim) 0%,transparent 60%);
+  opacity:0;transition:opacity var(--transition);pointer-events:none;
+}
+.matrix-card:hover::before{opacity:1}
+.matrix-card:hover{border-color:var(--border-yellow);box-shadow:var(--shadow-yellow)}
+.matrix-num{
+  font-family:var(--font-display);font-size:0.72rem;font-weight:700;color:var(--text-muted);
+  position:absolute;top:1.5rem;right:1.5rem;
+}
+.matrix-icon{
+  width:48px;height:48px;border-radius:var(--radius-md);
+  background:var(--yellow-dim);border:1px solid var(--border-yellow);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;
+  transform:translateZ(20px);
+}
+.matrix-icon svg{width:23px;height:23px;stroke:var(--yellow)}
+[data-theme="light"] .matrix-icon svg{stroke:#A16207}
+.matrix-title{font-family:var(--font-display);font-size:1.02rem;font-weight:600;margin-bottom:0.6rem;color:var(--text-primary);transform:translateZ(12px)}
+.matrix-desc{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+
+/* ===== OUR PRODUCTS PORTFOLIO ===== */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem;margin-top:3rem;perspective:1200px}
+.product-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;transition:transform 0.15s ease-out,border-color var(--transition),box-shadow var(--transition);
+  transform-style:preserve-3d;will-change:transform;
+}
+.product-card:hover{border-color:var(--border-yellow);box-shadow:var(--shadow-yellow)}
+.product-thumb{position:relative;height:200px;overflow:hidden;background:var(--bg-section)}
+.product-thumb img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.5s ease;
+}
+.product-card:hover .product-thumb img{transform:scale(1.06)}
+.product-thumb-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(11,13,19,0.75) 100%);
+}
+.product-tag{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;
+  background:rgba(11,13,19,0.75);border:1px solid var(--border-yellow);color:var(--yellow);
+  padding:5px 12px;border-radius:100px;
+}
+.product-body{padding:1.5rem;transform:translateZ(15px)}
+.product-title{font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin-bottom:0.5rem;color:var(--text-primary)}
+.product-desc{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+
+/* ===== PAGE HEADER (sub-pages) ===== */
+.page-header{
+  padding:9rem 1.5rem 3.5rem;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);text-align:center;
+}
+.page-header-inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+.page-header .section-desc{margin-left:auto;margin-right:auto}
+
+/* ===== EXECUTIVE BOARD ===== */
+.leader-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;margin-top:3rem;perspective:1400px}
+.leader-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);
+  padding:2.5rem;transition:transform 0.15s ease-out,border-color var(--transition),box-shadow var(--transition);
+  position:relative;overflow:hidden;text-align:center;transform-style:preserve-3d;will-change:transform;
+}
+.leader-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--amber),var(--yellow));
+}
+.leader-card:hover{box-shadow:var(--shadow-yellow);border-color:var(--border-yellow)}
+.leader-avatar{
+  width:108px;height:108px;border-radius:50%;margin:0 auto 1.5rem;
+  border:2px solid var(--yellow);box-shadow:0 0 28px rgba(255,215,0,0.18);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg-section);
+  font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:var(--yellow);
+}
+[data-theme="light"] .leader-avatar{color:#A16207}
+.leader-role{
+  font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:0.5rem;
+}
+[data-theme="light"] .leader-role{color:#A16207}
+.leader-name{font-family:var(--font-display);font-size:1.45rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary)}
+.leader-bio{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem}
+.leader-skills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.skill-pill{
+  font-size:0.74rem;font-weight:500;padding:5px 14px;border-radius:100px;
+  background:var(--yellow-dim);border:1px solid var(--border-yellow);color:var(--yellow);
+}
+[data-theme="light"] .skill-pill{color:#A16207}
+.about-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:4rem}
+.metric-box{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:1.75rem;text-align:center;transition:all var(--transition);
+}
+.metric-box:hover{border-color:var(--border-yellow)}
+.metric-box .stat-number{font-size:2rem}
+
+/* ===== BOOKING GRID ===== */
+.calendar-widget{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);
+  overflow:hidden;max-width:920px;margin:3rem auto 0;
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.calendar-left{padding:2.5rem;border-right:1px solid var(--border)}
+.calendar-right{padding:2.5rem}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.cal-month{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--text-primary)}
+.cal-nav{display:flex;gap:8px}
+.cal-nav-btn{
+  width:34px;height:34px;border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border);color:var(--text-secondary);background:var(--bg-section);
+  transition:all var(--transition);
+}
+.cal-nav-btn:hover{border-color:var(--yellow);color:var(--yellow)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-day-header{font-size:0.72rem;font-weight:600;color:var(--text-muted);text-align:center;padding:6px 0}
+.cal-day{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  font-size:0.875rem;border-radius:var(--radius-sm);cursor:pointer;
+  transition:all var(--transition);color:var(--text-secondary);position:relative;
+}
+.cal-day:hover:not(.empty):not(.past){background:var(--yellow-dim);color:var(--text-primary)}
+.cal-day.today{background:var(--yellow-dim);color:var(--yellow);font-weight:600}
+[data-theme="light"] .cal-day.today{color:#A16207}
+.cal-day.selected{background:var(--yellow);color:var(--graphite);font-weight:700;box-shadow:0 0 16px rgba(255,215,0,0.3)}
+.cal-day.empty{cursor:default}
+.cal-day.past{opacity:0.25;cursor:default}
+.cal-day.has-slot::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--yellow)}
+.cal-day.selected.has-slot::after{background:var(--graphite)}
+.time-slots h4{font-family:var(--font-display);font-size:1rem;font-weight:600;margin-bottom:1rem;color:var(--text-primary)}
+.slots-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.time-slot{
+  padding:11px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);
+  font-size:0.875rem;color:var(--text-secondary);background:var(--bg-section);
+  transition:all var(--transition);text-align:center;
+}
+.time-slot:hover{border-color:var(--yellow);color:var(--text-primary);background:var(--yellow-dim)}
+.time-slot.selected{background:var(--yellow);border-color:var(--yellow);color:var(--graphite);font-weight:700}
+.booking-confirm{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.booking-confirm input{
+  width:100%;padding:12px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);
+  background:var(--bg-section);color:var(--text-primary);font-family:var(--font-body);font-size:0.9rem;
+  margin-bottom:10px;outline:none;transition:border-color var(--transition);
+}
+.booking-confirm input:focus{border-color:var(--yellow)}
+.booking-confirm input::placeholder{color:var(--text-muted)}
+.btn-book{
+  width:100%;padding:13px;border-radius:var(--radius-md);background:var(--yellow);color:var(--graphite);
+  font-weight:700;font-size:0.95rem;font-family:var(--font-display);transition:all var(--transition);
+  box-shadow:0 4px 18px rgba(255,215,0,0.2);display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-book:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(255,215,0,0.35)}
+.booking-steps{display:flex;gap:1.5rem;margin-top:3rem;flex-wrap:wrap;justify-content:center}
+.booking-step{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-secondary)}
+.booking-step-num{
+  width:26px;height:26px;border-radius:50%;background:var(--yellow-dim);border:1px solid var(--border-yellow);
+  color:var(--yellow);font-family:var(--font-display);font-size:0.75rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+[data-theme="light"] .booking-step-num{color:#A16207}
+
+/* ===== SECURE ACCESS / GOOGLE SSO MOCKUP ===== */
+.access-wrap{max-width:460px;margin:3rem auto 0}
+.access-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);
+  padding:2.75rem;text-align:center;
+}
+.access-icon{
+  width:60px;height:60px;border-radius:var(--radius-md);margin:0 auto 1.5rem;
+  background:var(--yellow-dim);border:1px solid var(--border-yellow);
+  display:flex;align-items:center;justify-content:center;
+}
+.access-icon svg{width:28px;height:28px;stroke:var(--yellow)}
+[data-theme="light"] .access-icon svg{stroke:#A16207}
+.access-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:0.5rem;color:var(--text-primary)}
+.access-subtitle{font-size:0.9rem;color:var(--text-muted);margin-bottom:2rem}
+.google-btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:13px;
+  border-radius:var(--radius-md);border:1px solid var(--border);background:var(--bg-section);
+  color:var(--text-primary);font-weight:500;font-size:0.95rem;transition:all var(--transition);
+  margin-bottom:1.25rem;font-family:var(--font-body);
+}
+.google-btn:hover{border-color:var(--border-hover);box-shadow:var(--shadow-yellow)}
+.google-icon{width:20px;height:20px}
+.access-divider{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;color:var(--text-muted);font-size:0.85rem}
+.access-divider::before,.access-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.access-input{
+  width:100%;padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);
+  background:var(--bg-section);color:var(--text-primary);font-size:0.95rem;outline:none;
+  margin-bottom:12px;font-family:var(--font-body);transition:border-color var(--transition);
+}
+.access-input:focus{border-color:var(--yellow)}
+.access-input::placeholder{color:var(--text-muted)}
+.access-badges{display:flex;gap:10px;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.access-badge{
+  display:flex;align-items:center;gap:6px;font-size:0.75rem;color:var(--text-muted);
+  padding:6px 12px;border-radius:100px;border:1px solid var(--border);
+}
+.access-badge svg{width:13px;height:13px;stroke:var(--yellow)}
+
+/* ===== OAUTH PROGRESS MODAL ===== */
+.oauth-overlay{
+  position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease;
+}
+.oauth-overlay.open{opacity:1;visibility:visible}
+.oauth-modal{
+  width:min(380px,88vw);background:var(--bg-card);border:1px solid var(--border-yellow);
+  border-radius:var(--radius-xl);padding:2.5rem 2rem;text-align:center;
+  transform:scale(0.92);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:var(--shadow-yellow);
+}
+.oauth-overlay.open .oauth-modal{transform:scale(1)}
+.oauth-spinner{
+  width:54px;height:54px;margin:0 auto 1.5rem;border-radius:50%;
+  border:3px solid var(--border);border-top-color:var(--yellow);
+  animation:oauthSpin 0.8s linear infinite;
+}
+@keyframes oauthSpin{to{transform:rotate(360deg)}}
+.oauth-check{
+  width:54px;height:54px;margin:0 auto 1.5rem;border-radius:50%;
+  background:rgba(34,197,94,0.12);border:2px solid #22C55E;
+  display:none;align-items:center;justify-content:center;
+}
+.oauth-check svg{width:26px;height:26px;stroke:#22C55E}
+.oauth-status{
+  font-family:var(--font-body);font-size:0.92rem;font-weight:500;color:var(--text-primary);
+  min-height:22px;margin-bottom:0.5rem;
+}
+.oauth-substatus{font-size:0.78rem;color:var(--text-muted)}
+
+/* ===== LOGGED-IN NAV PROFILE STATE ===== */
+.nav-profile{
+  display:none;align-items:center;gap:10px;
+  padding:6px 16px 6px 6px;border-radius:100px;
+  background:var(--yellow-dim);border:1px solid var(--border-yellow);
+}
+.nav-profile.active{display:flex}
+.nav-profile-avatar{
+  width:30px;height:30px;border-radius:50%;background:var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:0.78rem;font-weight:700;color:var(--graphite);
+  flex-shrink:0;
+}
+.nav-profile-text{display:flex;flex-direction:column;line-height:1.25}
+.nav-profile-status{font-size:0.68rem;font-weight:600;color:var(--yellow);text-transform:uppercase;letter-spacing:0.04em}
+[data-theme="light"] .nav-profile-status{color:#A16207}
+.nav-profile-email{font-size:0.74rem;color:var(--text-secondary);max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-profile-logout{
+  width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);margin-left:2px;transition:all var(--transition);flex-shrink:0;
+}
+.nav-profile-logout:hover{color:var(--text-primary);background:rgba(255,255,255,0.08)}
+.drawer-profile{
+  display:none;align-items:center;gap:10px;padding:12px 16px;border-radius:var(--radius-md);
+  background:var(--yellow-dim);border:1px solid var(--border-yellow);margin-bottom:1rem;
+}
+.drawer-profile.active{display:flex}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;margin-top:3rem}
+.contact-info-item{
+  display:flex;align-items:flex-start;gap:16px;padding:1.5rem;border-radius:var(--radius-lg);
+  border:1px solid var(--border);background:var(--bg-card);margin-bottom:1rem;transition:all var(--transition);
+}
+.contact-info-item:hover{border-color:var(--border-yellow);transform:translateX(4px)}
+.contact-icon-wrap{
+  width:46px;height:46px;border-radius:var(--radius-md);background:var(--yellow-dim);border:1px solid var(--border-yellow);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-icon-wrap svg{width:21px;height:21px;stroke:var(--yellow)}
+[data-theme="light"] .contact-icon-wrap svg{stroke:#A16207}
+.contact-label{font-size:0.78rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+.contact-value{font-size:1rem;font-weight:500;color:var(--text-primary)}
+.wa-badge{
+  display:inline-flex;align-items:center;gap:4px;font-size:0.68rem;font-weight:600;padding:2px 9px;
+  background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);border-radius:100px;
+  color:#16A34A;margin-left:8px;vertical-align:middle;
+}
+.contact-form{background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.5rem}
+.form-group{margin-bottom:1.25rem}
+.form-label{display:block;font-size:0.875rem;font-weight:500;margin-bottom:8px;color:var(--text-secondary)}
+.form-input{
+  width:100%;padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);
+  background:var(--bg-section);color:var(--text-primary);font-family:var(--font-body);font-size:0.95rem;
+  outline:none;transition:all var(--transition);
+}
+.form-input:focus{border-color:var(--yellow);box-shadow:0 0 0 3px var(--yellow-dim)}
+.form-input::placeholder{color:var(--text-muted)}
+textarea.form-input{resize:vertical;min-height:120px}
+.form-error{font-size:0.78rem;color:#DC2626;margin-top:6px;display:none}
+.form-error.show{display:block}
+.form-input.invalid{border-color:#DC2626}
+
+/* ===== FOOTER ===== */
+footer{background:var(--bg-section);border-top:1px solid var(--border);padding:4rem 1.5rem 2rem}
+.footer-inner{max-width:1340px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand-row{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.footer-brand p{font-size:0.9rem;color:var(--text-muted);max-width:300px;line-height:1.7}
+.footer-col h4{font-family:var(--font-display);font-weight:600;font-size:0.9rem;margin-bottom:1rem;color:var(--text-primary)}
+.footer-col ul li{margin-bottom:0.6rem}
+.footer-col ul li a{font-size:0.86rem;color:var(--text-muted);transition:color var(--transition)}
+.footer-col ul li a:hover{color:var(--yellow)}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.footer-bottom p{font-size:0.85rem;color:var(--text-muted)}
+
+/* ===== AI ROBOT CHATBOT ===== */
+.chat-fab{
+  position:fixed;bottom:2rem;right:2rem;z-index:850;width:60px;height:60px;border-radius:50%;
+  background:var(--bg-card);border:1.5px solid var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(255,215,0,0.25);transition:all var(--transition);
+}
+.chat-fab:hover{transform:scale(1.08)}
+.chat-fab svg{width:30px;height:30px}
+.chat-widget{
+  position:fixed;bottom:6.5rem;right:2rem;z-index:850;width:380px;
+  background:var(--bg-card2);border:1px solid var(--border-yellow);border-radius:var(--radius-xl);
+  box-shadow:0 24px 70px rgba(0,0,0,0.35);display:none;flex-direction:column;overflow:hidden;
+}
+[data-theme="dark"] .chat-widget{box-shadow:0 24px 70px rgba(0,0,0,0.6)}
+.chat-widget.open{display:flex}
+.chat-head{padding:1.25rem 1.5rem;background:var(--bg-section);border-bottom:1px solid var(--border-yellow);display:flex;align-items:center;justify-content:space-between}
+.chat-head-info{display:flex;align-items:center;gap:12px}
+.chat-avatar{
+  width:40px;height:40px;border-radius:50%;background:var(--yellow-dim);border:1px solid var(--border-yellow);
+  display:flex;align-items:center;justify-content:center;
+}
+.chat-avatar svg{width:22px;height:22px}
+.chat-head-name{font-weight:600;color:var(--text-primary);font-size:0.93rem;font-family:var(--font-display)}
+.chat-head-status{font-size:0.74rem;color:var(--text-muted);display:flex;align-items:center;gap:4px}
+.online-dot{width:6px;height:6px;border-radius:50%;background:#22C55E}
+.chat-close-btn{color:var(--text-secondary);background:none;border:none;display:flex;align-items:center}
+.chat-messages{flex:1;overflow-y:auto;padding:1.25rem;display:flex;flex-direction:column;gap:12px;max-height:340px}
+.msg{max-width:85%;animation:msgIn 0.25s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg-bot{align-self:flex-start}
+.msg-user{align-self:flex-end}
+.msg-bubble{padding:10px 14px;border-radius:14px;font-size:0.875rem;line-height:1.55}
+.msg-bot .msg-bubble{background:var(--bg-section);border:1px solid var(--border);color:var(--text-primary);border-bottom-left-radius:4px}
+.msg-user .msg-bubble{background:var(--yellow);color:var(--graphite);font-weight:500;border-bottom-right-radius:4px}
+.chat-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 1.25rem 1rem}
+.chip{
+  padding:6px 14px;border-radius:100px;border:1px solid var(--border);background:var(--bg-section);
+  color:var(--text-secondary);font-size:0.78rem;font-weight:500;transition:all var(--transition);
+}
+.chip:hover{border-color:var(--yellow);color:var(--yellow);background:var(--yellow-dim)}
+[data-theme="light"] .chip:hover{color:#A16207}
+.chat-input-area{display:flex;align-items:center;gap:8px;padding:1rem 1.25rem;border-top:1px solid var(--border)}
+.chat-input{
+  flex:1;padding:10px 14px;border-radius:100px;border:1px solid var(--border);background:var(--bg-section);
+  color:var(--text-primary);font-size:0.875rem;outline:none;transition:border-color var(--transition);
+}
+.chat-input:focus{border-color:var(--yellow)}
+.chat-input::placeholder{color:var(--text-muted)}
+.chat-send{
+  width:38px;height:38px;border-radius:50%;background:var(--yellow);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--transition);
+}
+.chat-send:hover{transform:scale(1.08)}
+.chat-send svg{width:16px;height:16px;stroke:var(--graphite)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .calendar-widget{grid-template-columns:1fr}
+  .calendar-left{border-right:none;border-bottom:1px solid var(--border)}
+  .about-metrics{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-links,.nav-actions{display:none}
+  .hamburger{display:flex}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .stat-item{border-right:1px solid var(--border)}
+  .stat-item:nth-child(2n){border-right:none}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .chat-widget{width:calc(100vw - 2rem);right:1rem;bottom:5.75rem}
+  section,.page-section{padding:3.5rem 1.25rem}
+  .page-header{padding:7.5rem 1.25rem 2.5rem}
+}
+@media(max-width:480px){
+  .hero-title{font-size:2.2rem}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .btn-primary-lg,.btn-secondary-lg{justify-content:center}
+  .about-metrics{grid-template-columns:1fr 1fr}
+  .leader-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-brand">PRYME X <span class="gold">AI CYBER SOLUTIONS</span></div>
+    <div class="preloader-tagline">Initializing Secure Environment</div>
+    <div class="preloader-logo-ring"><img src="logo pryme.jpg" alt="Pryme X logo"></div>
+    <div class="robot-stage">
+      <div class="robot-shadow"></div>
+      <div class="humanoid">
+        <div class="h-arm left"></div>
+        <div class="h-arm right"></div>
+        <div class="h-leg left"></div>
+        <div class="h-leg right"></div>
+        <div class="h-torso"></div>
+        <div class="h-head"></div>
+      </div>
+    </div>
+    <div class="preloader-percent-big" id="preloaderPercent">0%</div>
+    <div class="preloader-percent-label">Running system cycles</div>
+  </div>
+</div>
+
+<canvas id="cursorCanvas"></canvas>
+
+<!-- ============ NAV ============ -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="goToPage('home');return false;">
+      <div class="logo-img"><img src="logo pryme.jpg" alt="Pryme X"></div>
+      <div class="logo-text">PRYME <span class="gold">X</span></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a class="nav-link active" data-page="home" onclick="goToPage('home')">Home</a>
+      <a class="nav-link" data-page="solutions" onclick="goToPage('solutions')">Solutions</a>
+      <a class="nav-link" data-page="board" onclick="goToPage('board')">Team</a>
+      <a class="nav-link" data-page="booking" onclick="goToPage('booking')">Booking</a>
+      <a class="nav-link" data-page="access" onclick="goToPage('access')">Secure Access</a>
+      <a class="nav-link" data-page="contact" onclick="goToPage('contact')">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-profile" id="navProfile">
+        <div class="nav-profile-avatar" id="navProfileAvatar">U</div>
+        <div class="nav-profile-text">
+          <span class="nav-profile-status">Session Active</span>
+          <span class="nav-profile-email" id="navProfileEmail">user@pryme.com</span>
+        </div>
+        <button class="nav-profile-logout" id="navLogoutBtn" aria-label="Sign out">
+          <i data-lucide="log-out" style="width:13px;height:13px"></i>
+        </button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i data-lucide="sun" style="width:18px;height:18px;display:none" id="sunIcon"></i>
+        <i data-lucide="moon" style="width:18px;height:18px" id="moonIcon"></i>
+      </button>
+      <a class="btn-nav-cta" onclick="goToPage('booking')">
+        <i data-lucide="calendar-check" style="width:16px;height:16px"></i> Book Session
+      </a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <i data-lucide="menu" style="width:20px;height:20px"></i>
+    </button>
+  </div>
+</nav>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+    <i data-lucide="x" style="width:18px;height:18px"></i>
+  </button>
+  <div class="drawer-profile" id="drawerProfile">
+    <div class="nav-profile-avatar" id="drawerProfileAvatar">U</div>
+    <div class="nav-profile-text">
+      <span class="nav-profile-status">Session Active</span>
+      <span class="nav-profile-email" id="drawerProfileEmail">user@pryme.com</span>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+      <a class="nav-link active" data-page="home" onclick="goToPage('home')">Home</a>
+      <a class="nav-link" data-page="solutions" onclick="goToPage('solutions')">Solutions</a>
+      <a class="nav-link" data-page="board" onclick="goToPage('board')">Team</a>
+      <a class="nav-link" data-page="booking" onclick="goToPage('booking')">Booking</a>
+      <a class="nav-link" data-page="access" onclick="goToPage('access')">Secure Access</a>
+      <a class="nav-link" data-page="contact" onclick="goToPage('contact')">Contact</a>
+    </div>
+</div>
+
+<!-- ============ OAUTH PROGRESS MODAL ============ -->
+<div class="oauth-overlay" id="oauthOverlay">
+  <div class="oauth-modal">
+    <div class="oauth-spinner" id="oauthSpinner"></div>
+    <div class="oauth-check" id="oauthCheck">
+      <i data-lucide="check" style="width:26px;height:26px"></i>
+    </div>
+    <div class="oauth-status" id="oauthStatus">Connecting to Google secure directory...</div>
+    <div class="oauth-substatus" id="oauthSubstatus">Please wait, this will only take a moment.</div>
+  </div>
+</div>
+
+<main id="mainContent">
+
+<!-- ============ PAGE: HOME HUB ============ -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-banner-bg"></div>
+    <div class="hero-banner-mask"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-pulse"></span>
+        TRUSTED ACROSS EUROPE, USA &amp; SRI LANKA
+      </div>
+      <h1 class="hero-title reveal reveal-delay-1">
+        Intelligence. Security.<br>
+        <span class="gold">Engineered as One.</span>
+      </h1>
+      <p class="hero-desc reveal reveal-delay-2">
+        Pryme X delivers enterprise Artificial Intelligence, Cyber Security, 3D development, and digital design as a single integrated discipline — built for European organizations that demand precision.
+      </p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a class="btn-primary-lg" onclick="goToPage('booking')">
+          <i data-lucide="calendar-check" style="width:18px;height:18px"></i> Book a Session
+        </a>
+        <a class="btn-secondary-lg" onclick="goToPage('solutions')">
+          <i data-lucide="layout-grid" style="width:18px;height:18px"></i> View Solutions Matrix
+        </a>
+      </div>
+      <div class="hero-footprint reveal reveal-delay-4">
+        <i data-lucide="globe-2"></i>
+        Global footprint — <strong>United States &amp; Sri Lanka</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-number" data-target="150">0+</div>
+        <div class="stat-label">Global Clients Served</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number" data-target="80">0+</div>
+        <div class="stat-label">Multi-Domain Projects</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number" data-target="14">0</div>
+        <div class="stat-label">Service Capabilities</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Infrastructure SLA</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Our Operational Matrix</div>
+        <h2 class="section-title">Fourteen Capabilities. <span class="gold">One Partner.</span></h2>
+        <p class="section-desc">From neural systems to brand collateral — every discipline an enterprise needs, under a single accountable roof.</p>
+      </div>
+      <div class="matrix-grid">
+        <div class="matrix-card reveal">
+          <div class="matrix-icon"><i data-lucide="brain-circuit"></i></div>
+          <div class="matrix-title">Artificial Intelligence</div>
+          <div class="matrix-desc">Enterprise workflows and neural systems engineered for scale.</div>
+        </div>
+        <div class="matrix-card reveal reveal-delay-1">
+          <div class="matrix-icon"><i data-lucide="shield-check"></i></div>
+          <div class="matrix-title">Cyber Security</div>
+          <div class="matrix-desc">Penetration testing, audits and architecture shielding.</div>
+        </div>
+        <div class="matrix-card reveal reveal-delay-2">
+          <div class="matrix-icon"><i data-lucide="box"></i></div>
+          <div class="matrix-title">3D Developments</div>
+          <div class="matrix-desc">High-fidelity assets and Blender production pipelines.</div>
+        </div>
+        <div class="matrix-card reveal">
+          <div class="matrix-icon"><i data-lucide="layout-dashboard"></i></div>
+          <div class="matrix-title">UI / UX Designing</div>
+          <div class="matrix-desc">Figma-to-code pipelines and modern brand systems.</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a class="btn-secondary-lg reveal" style="display:inline-flex" onclick="goToPage('solutions')">
+          View All 14 Capabilities <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews-section" class="reveal" style="padding: 80px 0; border-top: 1px solid var(--border); background: linear-gradient(180deg, var(--graphite) 0%, var(--graphite-2) 100%);">
+  <div class="container">
+    <div class="section-title" style="text-align: center; margin-bottom: 50px;">
+      <span class="badge" style="color: var(--yellow); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;">// VERIFIED TESTIMONIALS</span>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--white); margin-top: 10px;">Enterprise Feedback</h2>
+    </div>
+    
+    <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+      <div class="matrix-card interactive-hover" style="background: var(--graphite-card); border: 1px solid var(--border); padding: 30px; border-radius: 16px; transition: all 0.3s ease;">
+        <div style="display: flex; color: var(--yellow); margin-bottom: 15px; gap: 4px;">
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+        </div>
+        <p style="color: var(--slate); font-size: 0.95rem; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+          "Pryme X integrated an advanced AI neural model into our data pipelines. The infrastructure audit was precise, and execution speed exceeded European standards."
+        </p>
+        <div style="border-top: 1px solid rgba(255,215,0,0.1); padding-top: 15px;">
+          <h4 style="color: var(--white); font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; margin: 0;">Marcus Vance</h4>
+          <span style="color: var(--yellow); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">Chief Technology Officer — Vanguard Group</span>
+        </div>
+      </div>
+
+      <div class="matrix-card interactive-hover" style="background: var(--graphite-card); border: 1px solid var(--border); padding: 30px; border-radius: 16px; transition: all 0.3s ease;">
+        <div style="display: flex; color: var(--yellow); margin-bottom: 15px; gap: 4px;">
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+          <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--yellow);"></i>
+        </div>
+        <p style="color: var(--slate); font-size: 0.95rem; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+          "Their penetration testing operations exposed critical zero-day vectors in our core system layer. Absolute geniuses when it comes to offensive cybersecurity."
+        </p>
+        <div style="border-top: 1px solid rgba(255,215,0,0.1); padding-top: 15px;">
+          <h4 style="color: var(--white); font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; margin: 0;">Elena Rostova</h4>
+          <span style="color: var(--yellow); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">Director of Cyber Security — NordTech Labs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section style="background:var(--bg-section);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Our Products</div>
+        <h2 class="section-title">Frameworks We <span class="gold">Build On</span></h2>
+        <p class="section-desc">The core technical foundations behind every Pryme X engagement.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card reveal">
+          <div class="product-thumb">
+            <img src="https://source.unsplash.com/800x600/?neural-network,artificial-intelligence" alt="Artificial Intelligence and neural automation systems" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&amp;h=600&amp;fit=crop&amp;q=80'">
+            <div class="product-thumb-overlay"></div>
+            <span class="product-tag">AI Systems</span>
+          </div>
+          <div class="product-body">
+            <div class="product-title">Neural Automation Systems</div>
+            <div class="product-desc">Deep machine learning pipelines orchestrating enterprise-scale intelligent workflows.</div>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-delay-1">
+          <div class="product-thumb">
+            <img src="https://source.unsplash.com/800x600/?cybersecurity,firewall" alt="Cybersecurity ecosystems and secure core firewalls" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&amp;h=600&amp;fit=crop&amp;q=80'">
+            <div class="product-thumb-overlay"></div>
+            <span class="product-tag">Cyber Core</span>
+          </div>
+          <div class="product-body">
+            <div class="product-title">Secure Core Firewall Ecosystems</div>
+            <div class="product-desc">Layered defense matrices protecting enterprise infrastructure end to end.</div>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-delay-2">
+          <div class="product-thumb">
+            <img src="https://source.unsplash.com/800x600/?ui-design,wireframe" alt="High-fidelity UI/UX design architecture and wireframes" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&amp;h=600&amp;fit=crop&amp;q=80'">
+            <div class="product-thumb-overlay"></div>
+            <span class="product-tag">UI / UX</span>
+          </div>
+          <div class="product-body">
+            <div class="product-title">High-Fidelity Design Architecture</div>
+            <div class="product-desc">Component-driven interface systems built from research through pixel-perfect code.</div>
+          </div>
+        </div>
+        <div class="product-card reveal">
+          <div class="product-thumb">
+            <img src="https://source.unsplash.com/800x600/?code,programming" alt="Web and app systems engineering, reactive application code" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&amp;h=600&amp;fit=crop&amp;q=80'">
+            <div class="product-thumb-overlay"></div>
+            <span class="product-tag">Web / App</span>
+          </div>
+          <div class="product-body">
+            <div class="product-title">Reactive Systems Engineering</div>
+            <div class="product-desc">Clean, maintainable application logic powering web and native experiences.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<!-- /PAGE: HOME HUB -->
+
+<!-- ============ PAGE: SOLUTIONS MATRIX ============ -->
+<section class="page" id="page-solutions">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center">Solutions Matrix</div>
+      <h2 class="section-title reveal reveal-delay-1">The Complete <span class="gold">Operational Directory</span></h2>
+      <p class="section-desc reveal reveal-delay-2">All fourteen capability sectors, mapped without compromise.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="matrix-grid" style="margin-top:0">
+
+        <div class="matrix-card reveal">
+          <span class="matrix-num">01</span>
+          <div class="matrix-icon"><i data-lucide="brain-circuit"></i></div>
+          <div class="matrix-title">Artificial Intelligence Solutions</div>
+          <div class="matrix-desc">Enterprise workflow automation and neural systems engineering — from LLM pipelines to multi-agent orchestration at production scale.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-1">
+          <span class="matrix-num">02</span>
+          <div class="matrix-icon"><i data-lucide="shield-check"></i></div>
+          <div class="matrix-title">Cyber Security Solutions</div>
+          <div class="matrix-desc">Penetration testing, full-scope audits, and architecture shielding for organizations that cannot afford downtime.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-2">
+          <span class="matrix-num">03</span>
+          <div class="matrix-icon"><i data-lucide="box"></i></div>
+          <div class="matrix-title">3D Developments</div>
+          <div class="matrix-desc">Custom high-fidelity assets, Blender production loops, and real-time rendering engineering.</div>
+        </div>
+
+        <div class="matrix-card reveal">
+          <span class="matrix-num">04</span>
+          <div class="matrix-icon"><i data-lucide="gamepad-2"></i></div>
+          <div class="matrix-title">Game Designs</div>
+          <div class="matrix-desc">Immersive mechanics, environment design, and full interactive layout architecture.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-1">
+          <span class="matrix-num">05</span>
+          <div class="matrix-icon"><i data-lucide="layout-dashboard"></i></div>
+          <div class="matrix-title">UI / UX Designing</div>
+          <div class="matrix-desc">Figma-to-code pipelines, modern reusable components, and complete branding layout systems.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-2">
+          <span class="matrix-num">06</span>
+          <div class="matrix-icon"><i data-lucide="smartphone"></i></div>
+          <div class="matrix-title">App Development</div>
+          <div class="matrix-desc">Native and cross-platform performance applications built for reliability at scale.</div>
+        </div>
+
+        <div class="matrix-card reveal">
+          <span class="matrix-num">07</span>
+          <div class="matrix-icon"><i data-lucide="globe"></i></div>
+          <div class="matrix-title">Web Development</div>
+          <div class="matrix-desc">SaaS platforms, Web3 integration, and advanced reactive framework engineering.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-1">
+          <span class="matrix-num">08</span>
+          <div class="matrix-icon"><i data-lucide="server-cog"></i></div>
+          <div class="matrix-title">Software Development</div>
+          <div class="matrix-desc">Custom backend systems, robust APIs, and full system architecture design.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-2">
+          <span class="matrix-num">09</span>
+          <div class="matrix-icon"><i data-lucide="palette"></i></div>
+          <div class="matrix-title">Graphics Designing</div>
+          <div class="matrix-desc">High-end vector brand packages and complete visual collateral asset libraries.</div>
+        </div>
+
+        <div class="matrix-card reveal">
+          <span class="matrix-num">10</span>
+          <div class="matrix-icon"><i data-lucide="film"></i></div>
+          <div class="matrix-title">Video Editing &amp; VFX</div>
+          <div class="matrix-desc">Motion graphics, cinematic compositions, and trailer-grade post-production.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-1">
+          <span class="matrix-num">11</span>
+          <div class="matrix-icon"><i data-lucide="pen-line"></i></div>
+          <div class="matrix-title">Content Writing</div>
+          <div class="matrix-desc">Copywriting, technical documentation, optimization, and corporate script logs.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-2">
+          <span class="matrix-num">12</span>
+          <div class="matrix-icon"><i data-lucide="trending-up"></i></div>
+          <div class="matrix-title">Digital Marketing</div>
+          <div class="matrix-desc">Data-driven algorithmic outreach and programmatic growth tracking systems.</div>
+        </div>
+
+        <div class="matrix-card reveal">
+          <span class="matrix-num">13</span>
+          <div class="matrix-icon"><i data-lucide="share-2"></i></div>
+          <div class="matrix-title">Social Media Management</div>
+          <div class="matrix-desc">Full content lifecycle planning and ongoing visibility engineering across platforms.</div>
+        </div>
+
+        <div class="matrix-card reveal reveal-delay-1">
+          <span class="matrix-num">14</span>
+          <div class="matrix-icon"><i data-lucide="search"></i></div>
+          <div class="matrix-title">SEO Automation</div>
+          <div class="matrix-desc">Advanced performance metrics, dynamic metadata indexing, and continuous rank tracking.</div>
+        </div>
+
+      </div>
+      <div style="text-align:center;margin-top:3rem">
+        <a class="btn-primary-lg reveal" style="display:inline-flex" onclick="goToPage('booking')">
+          <i data-lucide="calendar-check" style="width:18px;height:18px"></i> Discuss Your Requirements
+        </a>
+      </div>
+    </div>
+  </section>
+</section>
+<!-- /PAGE: SOLUTIONS MATRIX -->
+
+<!-- ============ PAGE: EXECUTIVE BOARD ============ -->
+<section class="page" id="page-board">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center">Executive Board</div>
+      <h2 class="section-title reveal reveal-delay-1">Led by <span class="gold">Technical Conviction</span></h2>
+      <p class="section-desc reveal reveal-delay-2">Pryme X was founded on a simple premise: AI and security shouldn't be separate disciplines. Real resilience comes from engineering both together.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="leader-grid">
+        <div class="leader-card reveal">
+          <div class="leader-avatar">YG</div>
+          <div class="leader-role">Founder &amp; CEO</div>
+          <div class="leader-name">Yasiru Nethshan Gunasinghe</div>
+          <div class="leader-bio">A hands-on cybersecurity engineer and systems architect leading Pryme X's global operations across the US and Sri Lanka. Yasiru's background spans offensive security research, AI systems integration, and enterprise infrastructure hardening.</div>
+          <div class="leader-skills">
+            <span class="skill-pill">Cyber Security Engineer</span>
+            <span class="skill-pill">Red & Purple Teaming</span>
+            <span class="skill-pill">Software Engineer</span>
+            <span class="skill-pill">Penetration Testing</span>
+            <span class="skill-pill">UI UX & Web Designer</span>
+            <span class="skill-pill">AI Developer</span>
+            <span class="skill-pill">Enterprise Strategy</span>
+          </div>
+        </div>
+        <div class="leader-card reveal reveal-delay-1">
+          <div class="leader-avatar">PX</div>
+          <div class="leader-role">Co-Founder &amp; Lead Engineer</div>
+          <div class="leader-name">Dev Scott</div>
+          <div class="leader-bio">Responsible for Pryme X's full-stack technology backbone — from cloud infrastructure and design systems to 3D production pipelines and AI model deployment across every service pillar.</div>
+          <div class="leader-skills">
+            <span class="skill-pill">System Architecture</span>
+            <span class="skill-pill">Cyber Security Engineer</span>
+            <span class="skill-pill">3D Production</span>
+            <span class="skill-pill">Cloud Infrastructure</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-metrics">
+        <div class="metric-box reveal">
+          <div class="stat-number" data-target="150">0+</div>
+          <div class="stat-label">Global Clients</div>
+        </div>
+        <div class="metric-box reveal reveal-delay-1">
+          <div class="stat-number" data-target="80">0+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="metric-box reveal reveal-delay-2">
+          <div class="stat-number">99.9%</div>
+          <div class="stat-label">Security SLA</div>
+        </div>
+        <div class="metric-box reveal reveal-delay-3">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Global HQ Regions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<!-- /PAGE: EXECUTIVE BOARD -->
+
+<!-- ============ PAGE: BOOKING GRID ============ -->
+<section class="page" id="page-booking">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center">Booking Grid</div>
+      <h2 class="section-title reveal reveal-delay-1">Reserve a <span class="gold">30-Minute</span> Strategic Session</h2>
+      <p class="section-desc reveal reveal-delay-2">Pick a date and time that works for you. Zero sales pressure — just a focused conversation about your project.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="calendar-widget reveal">
+        <div class="calendar-left">
+          <div class="cal-header">
+            <div class="cal-month" id="calMonth">June 2026</div>
+            <div class="cal-nav">
+              <button class="cal-nav-btn" id="prevMonth" aria-label="Previous month">
+                <i data-lucide="chevron-left" style="width:16px;height:16px"></i>
+              </button>
+              <button class="cal-nav-btn" id="nextMonth" aria-label="Next month">
+                <i data-lucide="chevron-right" style="width:16px;height:16px"></i>
+              </button>
+            </div>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+        <div class="calendar-right">
+          <div class="time-slots" id="timeSlots">
+            <h4 id="selectedDateLabel">Select a date to view available slots</h4>
+            <div class="slots-grid" id="slotsGrid"></div>
+          </div>
+          <div class="booking-confirm" id="bookingConfirm" style="display:none">
+            <input class="form-input" type="text" placeholder="Your full name" id="bookName"/>
+            <input class="form-input" type="email" placeholder="Work email address" id="bookEmail"/>
+            <input class="form-input" type="text" placeholder="Company / Organization" id="bookCompany"/>
+            <button class="btn-book" id="confirmBooking">
+              <i data-lucide="check-circle" style="width:16px;height:16px"></i> Confirm Booking
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-steps">
+        <div class="booking-step"><span class="booking-step-num">1</span> Select an available date</div>
+        <div class="booking-step"><span class="booking-step-num">2</span> Choose a time slot</div>
+        <div class="booking-step"><span class="booking-step-num">3</span> Confirm your details</div>
+        <div class="booking-step"><span class="booking-step-num">4</span> Receive confirmation email</div>
+      </div>
+    </div>
+  </section>
+</section>
+<!-- /PAGE: BOOKING GRID -->
+
+<!-- ============ PAGE: SECURE ACCESS ============ -->
+<section class="page" id="page-access">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center">Secure Access</div>
+      <h2 class="section-title reveal reveal-delay-1">Authenticate via <span class="gold">Google SSO</span></h2>
+      <p class="section-desc reveal reveal-delay-2">Client portal access protected by single sign-on. No passwords stored on our infrastructure.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="access-wrap reveal">
+        <div class="access-card" id="accessCardSignedOut">
+          <div class="access-icon"><i data-lucide="shield-check"></i></div>
+          <div class="access-title">Sign in to Pryme X</div>
+          <div class="access-subtitle">Access your client portal and project dashboard</div>
+          <button class="google-btn" onclick="handleGoogleSignIn()">
+            <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Continue with Google
+          </button>
+          <div class="access-divider">or</div>
+          <input class="access-input" type="email" placeholder="Enter your work email" id="authEmail"/>
+          <button class="btn-primary-lg" style="width:100%;justify-content:center" onclick="handleEmailSignIn()">
+            <i data-lucide="arrow-right" style="width:18px;height:18px"></i> Continue with Email
+          </button>
+          <div class="access-badges">
+            <span class="access-badge"><i data-lucide="lock"></i> Encrypted session</span>
+            <span class="access-badge"><i data-lucide="shield"></i> SSO protected</span>
+          </div>
+        </div>
+
+        <div class="access-card" id="accessCardSignedIn" style="display:none">
+          <div class="access-icon" style="background:rgba(34,197,94,0.12);border-color:rgba(34,197,94,0.35)">
+            <i data-lucide="shield-check" style="stroke:#22C55E"></i>
+          </div>
+          <div class="access-title">Session Active</div>
+          <div class="access-subtitle" id="sessionSubtitle">User Authenticated</div>
+          <div class="contact-info-item" style="margin-bottom:1.5rem;text-align:left">
+            <div class="contact-icon-wrap"><i data-lucide="user-check"></i></div>
+            <div>
+              <div class="contact-label">Signed in as</div>
+              <div class="contact-value" id="sessionEmail">user@pryme.com</div>
+            </div>
+          </div>
+          <button class="btn-secondary-lg" style="width:100%;justify-content:center" onclick="handleSignOut()">
+            <i data-lucide="log-out" style="width:18px;height:18px"></i> Sign Out
+          </button>
+          <div class="access-badges">
+            <span class="access-badge"><i data-lucide="lock"></i> Encrypted session</span>
+            <span class="access-badge"><i data-lucide="shield-check"></i> Verified identity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<!-- /PAGE: SECURE ACCESS -->
+
+<!-- ============ PAGE: CONTACT CENTRAL ============ -->
+<section class="page" id="page-contact">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-eyebrow reveal" style="justify-content:center">Contact Central</div>
+      <h2 class="section-title reveal reveal-delay-1">Let's Build Something <span class="gold">Resilient</span></h2>
+      <p class="section-desc reveal reveal-delay-2">Reach our team directly — whichever regional channel works best for you.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item reveal">
+            <div class="contact-icon-wrap"><i data-lucide="phone"></i></div>
+            <div>
+              <div class="contact-label">US Primary Line</div>
+              <div class="contact-value">+1 (402) 808-7890</div>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-1">
+            <div class="contact-icon-wrap"><i data-lucide="smartphone"></i></div>
+            <div>
+              <div class="contact-label">Sri Lanka Line</div>
+              <div class="contact-value">
+                +94 74 087 5089
+                <span class="wa-badge"><i data-lucide="message-circle" style="width:10px;height:10px"></i> WhatsApp (Text Only)</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-2">
+            <div class="contact-icon-wrap"><i data-lucide="globe"></i></div>
+            <div>
+              <div class="contact-label">Global Presence</div>
+              <div class="contact-value">United States &amp; Sri Lanka</div>
+            </div>
+          </div>
+          <div class="contact-info-item reveal">
+            <div class="contact-icon-wrap"><i data-lucide="clock"></i></div>
+            <div>
+              <div class="contact-label">Open hours</div>
+              <div class="contact-value"> 24 business hours</div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form reveal reveal-delay-1">
+          <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;color:var(--text-primary)">Send a Direct Message</h3>
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="cName">Full Name</label>
+              <input class="form-input" type="text" id="cName" placeholder="Your name" required/>
+              <div class="form-error" id="errName">Please enter your name.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cEmail">Email Address</label>
+              <input class="form-input" type="email" id="cEmail" placeholder="you@company.com" required/>
+              <div class="form-error" id="errEmail">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cService">Service Interest</label>
+              <select class="form-input" id="cService">
+                <option value="">Select a service area</option>
+                <option>Artificial Intelligence Solutions</option>
+                <option>Cyber Security Solutions</option>
+                <option>3D Developments</option>
+                <option>Game Designs</option>
+                <option>UI / UX Designing</option>
+                <option>App Development</option>
+                <option>Web Development</option>
+                <option>Software Development</option>
+                <option>Graphics Designing</option>
+                <option>Video Editing &amp; VFX</option>
+                <option>Content Writing</option>
+                <option>Digital Marketing</option>
+                <option>Social Media Management</option>
+                <option>SEO Automation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cMsg">Message</label>
+              <textarea class="form-input" id="cMsg" rows="4" placeholder="Briefly describe your project or inquiry..." required></textarea>
+              <div class="form-error" id="errMsg">Please enter a message.</div>
+            </div>
+            <button type="submit" class="btn-primary-lg" style="width:100%;justify-content:center">
+              <i data-lucide="send" style="width:18px;height:18px"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<!-- /PAGE: CONTACT CENTRAL -->
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-row">
+          <div class="logo-img"><img src="logo pryme.jpg" alt="Pryme X"></div>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--text-primary)">PRYME <span class="gold">X</span></span>
+        </div>
+        <p>Engineering Artificial Intelligence, Cyber Security, 3D development, and digital design for European enterprise clients across the United States and Sri Lanka.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a onclick="goToPage('home')">Home</a></li>
+          <li><a onclick="goToPage('solutions')">Solutions</a></li>
+          <li><a onclick="goToPage('board')">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a onclick="goToPage('booking')">Booking</a></li>
+          <li><a onclick="goToPage('access')">Secure Access</a></li>
+          <li><a onclick="goToPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Regional Lines</h4>
+        <ul>
+          <li><a onclick="goToPage('contact')">United States</a></li>
+          <li><a onclick="goToPage('contact')">Sri Lanka</a></li>
+          <li>+1 (402) 808-7890</li>
+          <li>+94 74 087 5089</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Pryme X AI Cyber Solutions. All rights reserved.</p>
+      <p>United States &amp; Sri Lanka — AI Engineering &amp; Cyber Defense</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ ROBOT AI CHATBOT ============ -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat">
+  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="11" width="24" height="20" rx="7" fill="none" stroke="#FFD700" stroke-width="2"/>
+    <line x1="20" y1="5" x2="20" y2="11" stroke="#FFD700" stroke-width="2"/>
+    <circle cx="20" cy="4" r="2.2" fill="#FFD700"/>
+    <circle cx="15" cy="21" r="2.6" fill="#FFD700"/>
+    <circle cx="25" cy="21" r="2.6" fill="#FFD700"/>
+    <rect x="14" y="26" width="12" height="2.2" rx="1.1" fill="#FFD700" opacity="0.7"/>
+  </svg>
+</button>
+<div class="chat-widget" id="chatWidget" role="dialog" aria-label="Pryme X AI Assistant">
+  <div class="chat-head">
+    <div class="chat-head-info">
+      <div class="chat-avatar">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="11" width="24" height="20" rx="7" fill="none" stroke="#FFD700" stroke-width="2"/>
+          <line x1="20" y1="5" x2="20" y2="11" stroke="#FFD700" stroke-width="2"/>
+          <circle cx="20" cy="4" r="2" fill="#FFD700"/>
+          <circle cx="15" cy="21" r="2.3" fill="#FFD700"/>
+          <circle cx="25" cy="21" r="2.3" fill="#FFD700"/>
+          <rect x="14" y="26" width="12" height="2" rx="1" fill="#FFD700" opacity="0.7"/>
+        </svg>
+      </div>
+      <div>
+        <div class="chat-head-name">Pryme X AI Assistant</div>
+        <div class="chat-head-status"><span class="online-dot"></span> Online now</div>
+      </div>
+    </div>
+    <button class="chat-close-btn" id="chatClose" aria-label="Close chat">
+      <i data-lucide="x" style="width:20px;height:20px"></i>
+    </button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="msg msg-bot">
+      <div class="msg-bubble">Hello, I'm the Pryme X AI Assistant. I can answer questions about our leadership, services, AI workflows, cybersecurity, pricing, and more — in English or Sinhala. How can I help?</div>
+    </div>
+  </div>
+  <div class="chat-chips" id="chatChips">
+    <button class="chip" onclick="sendChip('Who is the CEO?')">Who is the CEO?</button>
+    <button class="chip" onclick="sendChip('What are your service categories?')">Services</button>
+    <button class="chip" onclick="sendChip('Tell me about AI workflows')">AI Workflows</button>
+    <button class="chip" onclick="sendChip('How do you handle web pentesting?')">Web Pentesting</button>
+    <button class="chip" onclick="sendChip('How do I book a meeting?')">Book a Meeting</button>
+    <button class="chip" onclick="sendChip('Pricing structure')">Pricing</button>
+  </div>
+<script>
+lucide.createIcons();
+
+/* ===================== THEME ENGINE ===================== */
+const htmlEl=document.documentElement;
+const sunIcon=document.getElementById('sunIcon');
+const moonIcon=document.getElementById('moonIcon');
+function setTheme(t){
+  htmlEl.setAttribute('data-theme',t);
+  localStorage.setItem('prymeTheme',t);
+  if(t==='light'){sunIcon.style.display='block';moonIcon.style.display='none'}
+  else{sunIcon.style.display='none';moonIcon.style.display='block'}
+}
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark');
+});
+const savedTheme=localStorage.getItem('prymeTheme');
+if(savedTheme)setTheme(savedTheme);
+
+/* ===================== PRELOADER WITH HUMANOID ROBOT ===================== */
+(function(){
+  const percentEl=document.getElementById('preloaderPercent');
+  let current=0;
+  const total=2200;
+  const start=performance.now();
+  function step(now){
+    const elapsed=now-start;
+    current=Math.min(100,Math.floor((elapsed/total)*100));
+    percentEl.textContent=current+'%';
+    if(current<100){
+      requestAnimationFrame(step);
+    }else{
+      setTimeout(()=>{
+        document.getElementById('preloader').classList.add('hidden');
+        document.body.classList.remove('no-scroll');
+      },350);
+    }
+  }
+  document.body.classList.add('no-scroll');
+  requestAnimationFrame(step);
+})();
+
+/* ===================== CURSOR PARTICLE TRAIL (FULL PAGE) ===================== */
+const cursorCanvas=document.getElementById('cursorCanvas');
+const cctx=cursorCanvas.getContext('2d');
+let cursorParticles=[];
+let lastMouse={x:window.innerWidth/2,y:window.innerHeight/2};
+function resizeCursorCanvas(){
+  cursorCanvas.width=window.innerWidth;
+  cursorCanvas.height=window.innerHeight;
+}
+resizeCursorCanvas();
+window.addEventListener('resize',resizeCursorCanvas);
+class TrailParticle{
+  constructor(x,y){
+    this.x=x;this.y=y;
+    this.vx=(Math.random()-0.5)*0.6;
+    this.vy=(Math.random()-0.5)*0.6;
+    this.size=Math.random()*2+1;
+    this.life=1;
+    this.decay=Math.random()*0.018+0.012;
+  }
+  update(){
+    this.x+=this.vx;this.y+=this.vy;
+    this.life-=this.decay;
+  }
+  draw(){
+    cctx.beginPath();
+    cctx.arc(this.x,this.y,this.size*this.life,0,Math.PI*2);
+    cctx.fillStyle=`rgba(255,215,0,${this.life*0.5})`;
+    cctx.fill();
+  }
+}
+document.addEventListener('mousemove',e=>{
+  lastMouse.x=e.clientX;lastMouse.y=e.clientY;
+  for(let k=0;k<2;k++)cursorParticles.push(new TrailParticle(e.clientX,e.clientY));
+  if(cursorParticles.length>140)cursorParticles.splice(0,cursorParticles.length-140);
+});
+function animateCursorTrail(){
+  cctx.clearRect(0,0,cursorCanvas.width,cursorCanvas.height);
+  cursorParticles=cursorParticles.filter(p=>p.life>0);
+  for(let i=0;i<cursorParticles.length;i++){
+    for(let j=i+1;j<cursorParticles.length;j++){
+      const dx=cursorParticles[i].x-cursorParticles[j].x;
+      const dy=cursorParticles[i].y-cursorParticles[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<60){
+        cctx.beginPath();
+        cctx.strokeStyle=`rgba(255,215,0,${0.12*Math.min(cursorParticles[i].life,cursorParticles[j].life)*(1-dist/60)})`;
+        cctx.lineWidth=0.5;
+        cctx.moveTo(cursorParticles[i].x,cursorParticles[i].y);
+        cctx.lineTo(cursorParticles[j].x,cursorParticles[j].y);
+        cctx.stroke();
+      }
+    }
+  }
+  cursorParticles.forEach(p=>{p.update();p.draw()});
+  requestAnimationFrame(animateCursorTrail);
+}
+animateCursorTrail();
+
+/* ===================== PAGE ROUTER ===================== */
+function goToPage(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target=document.getElementById('page-'+pageId);
+  if(target)target.classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l=>{
+    l.classList.toggle('active',l.getAttribute('data-page')===pageId);
+  });
+  document.querySelectorAll('.drawer-link').forEach(l=>{
+    l.classList.toggle('active',l.getAttribute('data-page')===pageId);
+  });
+  closeDrawer();
+  window.scrollTo({top:0,behavior:'instant'in window?'instant':'auto'});
+  lucide.createIcons();
+  setTimeout(()=>{
+    document.querySelectorAll('#page-'+pageId+' .reveal').forEach(el=>{
+      el.classList.add('visible');
+      revealObserver.observe(el);
+    });
+  },30);
+}
+
+/* ===================== MOBILE DRAWER ===================== */
+const hamburgerBtn=document.getElementById('hamburgerBtn');
+const mobileDrawer=document.getElementById('mobileDrawer');
+const drawerOverlay=document.getElementById('drawerOverlay');
+const drawerClose=document.getElementById('drawerClose');
+function openDrawer(){mobileDrawer.classList.add('open');drawerOverlay.classList.add('open')}
+function closeDrawer(){mobileDrawer.classList.remove('open');drawerOverlay.classList.remove('open')}
+hamburgerBtn.addEventListener('click',openDrawer);
+drawerClose.addEventListener('click',closeDrawer);
+drawerOverlay.addEventListener('click',closeDrawer);
+
+/* ===================== SCROLL REVEAL ===================== */
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('#page-home .reveal').forEach(el=>revealObserver.observe(el));
+
+/* ===================== 3D TILT + GLOW TRACKING ===================== */
+function attachTilt(selector,maxTilt){
+  document.querySelectorAll(selector).forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const rect=card.getBoundingClientRect();
+      const x=((e.clientX-rect.left)/rect.width)*100;
+      const y=((e.clientY-rect.top)/rect.height)*100;
+      card.style.setProperty('--mx',x+'%');
+      card.style.setProperty('--my',y+'%');
+      const rotY=((x-50)/50)*maxTilt;
+      const rotX=-((y-50)/50)*maxTilt;
+      card.style.transform=`perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transform='perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)';
+    });
+  });
+}
+attachTilt('.matrix-card',7);
+attachTilt('.leader-card',5);
+attachTilt('.product-card',6);
+
+/* ===================== COUNTER ANIMATION ===================== */
+function animateCounters(scope){
+  scope.querySelectorAll('[data-target]').forEach(el=>{
+    const target=parseInt(el.getAttribute('data-target'));
+    const suffix=el.textContent.replace(/[0-9]/g,'');
+    let current=0;
+    const stepVal=target/55;
+    const timer=setInterval(()=>{
+      current+=stepVal;
+      if(current>=target){current=target;clearInterval(timer)}
+      el.textContent=Math.floor(current)+suffix;
+    },22);
+  });
+}
+const statsObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){animateCounters(e.target);statsObs.unobserve(e.target)}
+  });
+},{threshold:0.4});
+document.querySelectorAll('.stats-bar,.about-metrics').forEach(el=>statsObs.observe(el));
+
+/* ===================== BOOKING CALENDAR ===================== */
+const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const dayLabels=['Su','Mo','Tu','We','Th','Fr','Sa'];
+let calDate=new Date(2026,5,1);
+let selectedDay=null;
+let selectedSlot=null;
+const availableSlots={
+  16:['9:00 AM','10:00 AM','2:00 PM','3:30 PM'],
+  17:['10:00 AM','11:00 AM','3:00 PM'],
+  18:['9:00 AM','1:00 PM','4:00 PM'],
+  19:['10:30 AM','2:00 PM'],
+  22:['9:00 AM','10:00 AM','11:00 AM','2:30 PM','4:00 PM'],
+  23:['10:00 AM','3:00 PM'],
+  24:['9:00 AM','11:30 AM','2:00 PM'],
+  25:['10:00 AM','1:00 PM','3:30 PM'],
+  26:['9:00 AM','2:00 PM','4:00 PM'],
+  29:['10:00 AM','11:00 AM','3:00 PM'],
+  30:['9:30 AM','2:00 PM']
+};
+function renderCalendar(){
+  const m=calDate.getMonth();const y=calDate.getFullYear();
+  document.getElementById('calMonth').textContent=`${months[m]} ${y}`;
+  const grid=document.getElementById('calGrid');
+  grid.innerHTML='';
+  dayLabels.forEach(d=>{
+    const h=document.createElement('div');
+    h.className='cal-day-header';h.textContent=d;grid.appendChild(h);
+  });
+  const firstDay=new Date(y,m,1).getDay();
+  const daysInMonth=new Date(y,m+1,0).getDate();
+  const today=new Date();
+  for(let i=0;i<firstDay;i++){
+    const e=document.createElement('div');e.className='cal-day empty';grid.appendChild(e);
+  }
+  for(let d=1;d<=daysInMonth;d++){
+    const el=document.createElement('div');
+    el.className='cal-day';el.textContent=d;
+    const isPast=new Date(y,m,d)<new Date(today.getFullYear(),today.getMonth(),today.getDate());
+    if(isPast)el.classList.add('past');
+    if(d===today.getDate()&&m===today.getMonth()&&y===today.getFullYear())el.classList.add('today');
+    if(availableSlots[d]&&!isPast)el.classList.add('has-slot');
+    if(d===selectedDay)el.classList.add('selected');
+    if(!isPast&&availableSlots[d]){
+      el.addEventListener('click',()=>selectDay(d,el));
+    }
+    grid.appendChild(el);
+  }
+}
+function selectDay(d,el){
+  document.querySelectorAll('.cal-day.selected').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedDay=d;selectedSlot=null;
+  renderSlots(d);
+}
+function renderSlots(d){
+  const label=document.getElementById('selectedDateLabel');
+  const grid=document.getElementById('slotsGrid');
+  const confirm=document.getElementById('bookingConfirm');
+  const slots=availableSlots[d]||[];
+  label.textContent=`Available times — ${months[calDate.getMonth()]} ${d}`;
+  grid.innerHTML='';
+  confirm.style.display='none';
+  slots.forEach(s=>{
+    const btn=document.createElement('button');
+    btn.className='time-slot';btn.textContent=s;
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.time-slot.selected').forEach(e=>e.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedSlot=s;
+      confirm.style.display='block';
+      lucide.createIcons();
+    });
+    grid.appendChild(btn);
+  });
+}
+document.getElementById('prevMonth').addEventListener('click',()=>{
+  calDate=new Date(calDate.getFullYear(),calDate.getMonth()-1,1);
+  selectedDay=null;renderCalendar();
+  document.getElementById('slotsGrid').innerHTML='';
+  document.getElementById('selectedDateLabel').textContent='Select a date to view available slots';
+  document.getElementById('bookingConfirm').style.display='none';
+});
+document.getElementById('nextMonth').addEventListener('click',()=>{
+  calDate=new Date(calDate.getFullYear(),calDate.getMonth()+1,1);
+  selectedDay=null;renderCalendar();
+  document.getElementById('slotsGrid').innerHTML='';
+  document.getElementById('selectedDateLabel').textContent='Select a date to view available slots';
+  document.getElementById('bookingConfirm').style.display='none';
+});
+document.getElementById('confirmBooking').addEventListener('click',()=>{
+  const name=document.getElementById('bookName').value.trim();
+  const email=document.getElementById('bookEmail').value.trim();
+  if(!name||!email){alert('Please fill in your name and email.');return}
+  const m=months[calDate.getMonth()];
+  alert(`Booking confirmed.\n\nName: ${name}\nDate: ${m} ${selectedDay}, ${calDate.getFullYear()}\nTime: ${selectedSlot}\n\nA confirmation has been sent to ${email}. We look forward to speaking with you.`);
+  document.getElementById('bookName').value='';
+  document.getElementById('bookEmail').value='';
+  document.getElementById('bookCompany').value='';
+  document.getElementById('bookingConfirm').style.display='none';
+  document.querySelectorAll('.time-slot.selected').forEach(e=>e.classList.remove('selected'));
+  selectedSlot=null;
+});
+renderCalendar();
+
+/* ===================== OAUTH MOCK ENGINE ===================== */
+let sessionState={active:false,email:null};
+
+function showOauthModal(){
+  document.getElementById('oauthOverlay').classList.add('open');
+  document.getElementById('oauthSpinner').style.display='block';
+  document.getElementById('oauthCheck').style.display='none';
+}
+function hideOauthModal(){
+  document.getElementById('oauthOverlay').classList.remove('open');
+}
+
+function runOauthSequence(email,provider){
+  const statusEl=document.getElementById('oauthStatus');
+  const subEl=document.getElementById('oauthSubstatus');
+  const spinner=document.getElementById('oauthSpinner');
+  const check=document.getElementById('oauthCheck');
+  showOauthModal();
+  spinner.style.display='block';
+  check.style.display='none';
+
+  const steps=provider==='google'?[
+    {text:'Connecting to Google secure directory...',sub:'Establishing encrypted channel',delay:900},
+    {text:'Retrieving credential token...',sub:'Validating OAuth 2.0 scope',delay:900},
+    {text:'Verifying account identity...',sub:'Cross-checking session permissions',delay:800},
+    {text:'Session Active: User Authenticated',sub:'Redirecting to your dashboard',delay:700}
+  ]:[
+    {text:'Sending secure magic link request...',sub:'Validating email domain',delay:800},
+    {text:'Generating one-time access token...',sub:'Encrypting credential payload',delay:800},
+    {text:'Verifying account identity...',sub:'Cross-checking session permissions',delay:700},
+    {text:'Session Active: User Authenticated',sub:'Redirecting to your dashboard',delay:700}
+  ];
+
+  let i=0;
+  function next(){
+    if(i>=steps.length){
+      finalizeLogin(email);
+      return;
+    }
+    const s=steps[i];
+    statusEl.textContent=s.text;
+    subEl.textContent=s.sub;
+    if(i===steps.length-1){
+      spinner.style.display='none';
+      check.style.display='flex';
+      lucide.createIcons();
+    }
+    i++;
+    setTimeout(next,s.delay);
+  }
+  next();
+}
+
+function finalizeLogin(email){
+  sessionState.active=true;
+  sessionState.email=email;
+  setTimeout(()=>{
+    hideOauthModal();
+    updateAuthUI();
+    goToPage('access');
+  },650);
+}
+
+function updateAuthUI(){
+  const initial=sessionState.email?sessionState.email.charAt(0).toUpperCase():'U';
+  const navProfile=document.getElementById('navProfile');
+  const drawerProfile=document.getElementById('drawerProfile');
+  const accessOut=document.getElementById('accessCardSignedOut');
+  const accessIn=document.getElementById('accessCardSignedIn');
+
+  if(sessionState.active){
+    navProfile.classList.add('active');
+    drawerProfile.classList.add('active');
+    document.getElementById('navProfileAvatar').textContent=initial;
+    document.getElementById('navProfileEmail').textContent=sessionState.email;
+    document.getElementById('drawerProfileAvatar').textContent=initial;
+    document.getElementById('drawerProfileEmail').textContent=sessionState.email;
+    document.getElementById('sessionEmail').textContent=sessionState.email;
+    accessOut.style.display='none';
+    accessIn.style.display='block';
+  }else{
+    navProfile.classList.remove('active');
+    drawerProfile.classList.remove('active');
+    accessOut.style.display='block';
+    accessIn.style.display='none';
+  }
+  lucide.createIcons();
+}
+
+function handleGoogleSignIn(){
+  const mockEmails=['yasiru.client@gmail.com','contact.partner@gmail.com','enterprise.lead@gmail.com'];
+  const email=mockEmails[Math.floor(Math.random()*mockEmails.length)];
+  runOauthSequence(email,'google');
+}
+function handleEmailSignIn(){
+  const email=document.getElementById('authEmail').value.trim();
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return}
+  runOauthSequence(email,'email');
+}
+function handleSignOut(){
+  sessionState.active=false;
+  sessionState.email=null;
+  updateAuthUI();
+  document.getElementById('authEmail').value='';
+}
+document.getElementById('navLogoutBtn').addEventListener('click',handleSignOut);
+
+/* ===================== CONTACT FORM VALIDATION ===================== */
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  let valid=true;
+  const name=document.getElementById('cName');
+  const email=document.getElementById('cEmail');
+  const msg=document.getElementById('cMsg');
+  const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(!name.value.trim()){
+    name.classList.add('invalid');document.getElementById('errName').classList.add('show');valid=false;
+  }else{name.classList.remove('invalid');document.getElementById('errName').classList.remove('show')}
+
+  if(!email.value.trim()||!emailPattern.test(email.value.trim())){
+    email.classList.add('invalid');document.getElementById('errEmail').classList.add('show');valid=false;
+  }else{email.classList.remove('invalid');document.getElementById('errEmail').classList.remove('show')}
+
+  if(!msg.value.trim()){
+    msg.classList.add('invalid');document.getElementById('errMsg').classList.add('show');valid=false;
+  }else{msg.classList.remove('invalid');document.getElementById('errMsg').classList.remove('show')}
+
+  if(!valid)return;
+
+  alert(`Message sent.\n\nThank you, ${name.value.trim()}. We will respond to ${email.value.trim()} within 4 business hours.`);
+  this.reset();
+});
+
+/* ===================== ROBOT AI CHATBOT ===================== */
+const chatFab=document.getElementById('chatFab');
+const chatWidget=document.getElementById('chatWidget');
+const chatClose=document.getElementById('chatClose');
+const chatMessages=document.getElementById('chatMessages');
+const chatInput=document.getElementById('chatInput');
+const chatSend=document.getElementById('chatSend');
+
+chatFab.addEventListener('click',()=>{
+  chatWidget.classList.add('open');
+  chatFab.style.display='none';
+  chatMessages.scrollTop=chatMessages.scrollHeight;
+});
+chatClose.addEventListener('click',()=>{
+  chatWidget.classList.remove('open');
+  chatFab.style.display='flex';
+});
+
+/* ===================== LANGUAGE DETECTION ===================== */
+function detectLanguage(msg){
+  // Sinhala unicode block: U+0D80–U+0DFF
+  if(/[\u0D80-\u0DFF]/.test(msg))return'si';
+  const lower=msg.toLowerCase();
+  const singlishMarkers=['mokakda','kohomada','oyage','mata','kiyada','puluwanda','hari','ayubowan','machan','karanna','danna','ow','nee','therenawa','meka','kawda','ekka'];
+  const hits=singlishMarkers.filter(w=>lower.includes(w)).length;
+  if(hits>=1)return'sg';
+  return'en';
+}
+
+const botKnowledge={
+  ceo:['who is the ceo','who is the founder','who leads','who runs','founder','ceo','yasiru'],
+  services:['service categories','what services','what do you do','offerings','capabilities','what can you','services do','14 services','solutions matrix'],
+  aiworkflow:['ai workflow','ai automation','automation','neural','machine learning','llm','agent'],
+  cybermitigation:['cybersecurity mitigation','threat mitigation','cyber defense','incident response','vulnerability management','risk mitigation'],
+  pentest:['web pentest','penetration test','pentesting','red team','vulnerability scan','security audit'],
+  uiux:['ui/ux protocol','ui protocol','ux protocol','design system','figma','design process'],
+  booking:['how do i book','book a meeting','book a session','schedule','appointment','calendar','discovery call'],
+  pricing:['pricing structure','price','pricing','rates','cost','how much','quote','budget','custom estimate','framework pricing'],
+  industries:['industries','sectors','which industries','clients','who do you serve','verticals'],
+  location:['where are you','location','based','country','office'],
+  contact:['contact','reach','phone','email','whatsapp','call you'],
+  access:['sign in','login','sso','google','secure access','portal'],
+};
+
+const botResponses={
+  en:{
+    ceo:'Our Founder and CEO is Yasiru Nethshan Gunasinghe. He leads Pryme X global operations across the US and Sri Lanka, with deep expertise in penetration testing, network security, and AI systems architecture.',
+    services:'Pryme X operates across 14 capabilities: Artificial Intelligence, Cyber Security, 3D Developments, Game Designs, UI/UX Designing, App Development, Web Development, Software Development, Graphics Designing, Video Editing & VFX, Content Writing, Digital Marketing, Social Media Management, and SEO Automation. Visit the Solutions Matrix page for full detail on each.',
+    aiworkflow:'Our AI workflow engineering covers LLM-powered automation pipelines, multi-agent orchestration, and intelligent process automation that eliminates operational bottlenecks at enterprise scale.',
+    cybermitigation:'Our cybersecurity mitigation approach includes continuous threat monitoring, incident response planning, vulnerability management, and architecture shielding designed to minimize attack surface.',
+    pentest:'We run full-scope web and network penetration testing aligned with the OWASP Top 10, including red team adversary simulation and prioritized remediation roadmaps.',
+    uiux:'Our UI/UX protocols follow a research-to-code pipeline: discovery, wireframing, high-fidelity Figma prototyping, design systems, and full translation into production-grade accessible code.',
+    booking:'You can book a free 30-minute strategic session directly through the Booking Grid page — select an available date, pick a time slot, and confirm your details. A confirmation email follows instantly.',
+    pricing:'Pricing is scoped per project based on requirements, timeline, and scale. We offer fixed-scope engagements, monthly retainers, and embedded-team partnerships. Book a free 30-minute session for a tailored custom estimate.',
+    industries:'We serve FinTech, Healthcare, E-Commerce, Manufacturing, Gaming and Entertainment, Government, and Education sectors across our service pillars, with a strong focus on European enterprise clients.',
+    location:'Pryme X operates from two regional hubs: the United States and Sri Lanka, serving clients globally including across Europe.',
+    contact:'Reach us at:\nUS: +1 (402) 808-7890\nSri Lanka (WhatsApp text only): +94 74 087 5089\nOr use the Contact Central form for a response within 4 business hours.',
+    access:'Client portal access is protected via Google Single Sign-On. Visit the Secure Access page to authenticate with your Google account or work email.',
+    default:'I can help with questions about our leadership, service categories, AI workflows, cybersecurity, pentesting, UI/UX, pricing, or how to get in touch. Try one of the quick options below.',
+  },
+  si:{
+    ceo:'අපගේ ආරම්භකයා සහ ප්‍රධාන විධායක නිලධාරියා Yasiru Nethshan Gunasinghe මහතායි. ඔහු එක්සත් ජනපදය සහ ශ්‍රී ලංකාව හරහා Pryme X ක්‍රියාකාරකම් මෙහෙයවයි.',
+    services:'Pryme X හි ක්ෂේත්‍ර 14 ක් ඇත: කෘතිම බුද්ධිය, සයිබර් ආරක්ෂාව, 3D සංවර්ධන, ක්‍රීඩා නිර්මාණ, UI/UX නිර්මාණ, යෙදුම් සංවර්ධනය, වෙබ් සංවර්ධනය, මෘදුකාංග සංවර්ධනය, ග්‍රැෆික් නිර්මාණ, වීඩියෝ සංස්කරණය, අන්තර්ගත රචනය, ඩිජිටල් අලෙවිකරණය, සමාජ මාධ්‍ය කළමනාකරණය සහ SEO ස්වයංක්‍රීයකරණය.',
+    aiworkflow:'අපගේ AI ස්වයංක්‍රීයකරණයේ LLM පද්ධති, බහු-නියෝජිත සම්බන්ධීකරණය සහ බුද්ධිමත් ක්‍රියාවලි ස්වයංක්‍රීයකරණය ඇතුළත් වේ.',
+    cybermitigation:'අපගේ සයිබර් ආරක්ෂණ ක්‍රමවේදයේ අඛණ්ඩ තර්ජන නිරීක්ෂණය, සිදුවීම් ප්‍රතිචාර සැලසුම් සහ ව්‍යුහාත්මක ආරක්ෂාව ඇතුළත් වේ.',
+    pentest:'අපි OWASP Top 10 මත පදනම්ව සම්පූර්ණ වෙබ් සහ ජාල විනිවිද පරීක්ෂණ සිදු කරමු.',
+    uiux:'අපගේ UI/UX ක්‍රමවේදය පර්යේෂණයේ සිට කේතීකරණය දක්වා සම්පූර්ණ නිර්මාණ පද්ධතියක් අනුගමනය කරයි.',
+    booking:'ඔබට Booking Grid පිටුව හරහා නොමිලේ විනාඩි 30ක උපායමාර්ගික සැසියක් වෙන්කරවා ගත හැක.',
+    pricing:'මිල නියමය ඔබගේ ව්‍යාපෘතියේ විෂය පථය අනුව තීරණය වේ. නොමිලේ සැසියක් වෙන්කරවා ගෙන විස්තරාත්මක මිල ගණනක් ලබාගන්න.',
+    industries:'අපි FinTech, සෞඛ්‍ය, විද්‍යුත් වාණිජ්‍ය, නිෂ්පාදන, ක්‍රීඩා සහ රාජ්‍ය අංශ සඳහා සේවා සපයමු.',
+    location:'Pryme X එක්සත් ජනපදය සහ ශ්‍රී ලංකාව යන කලාප දෙකෙන් ක්‍රියාත්මක වේ.',
+    contact:'අප හා සම්බන්ධ වන්න:\nඇමරිකා: +1 (402) 808-7890\nශ්‍රී ලංකා (WhatsApp පමණි): +94 74 087 5089',
+    access:'Google Single Sign-On හරහා ආරක්ෂිතව පිවිසිය හැක. Secure Access පිටුවට යන්න.',
+    default:'මට අපගේ නායකත්වය, සේවා, මිල ගණන්, හෝ සම්බන්ධතා පිළිබඳ ප්‍රශ්නවලට පිළිතුරු දිය හැක.',
+  },
+  sg:{
+    ceo:'Apey founder saha CEO kiyanne Yasiru Nethshan Gunasinghe. Eyaa US saha Sri Lanka dekama Pryme X operations lead karanawa.',
+    services:'Pryme X eke services 14k thiyenawa — AI, Cyber Security, 3D Development, Game Design, UI/UX, App Dev, Web Dev, Software Dev, Graphics, Video Editing, Content Writing, Digital Marketing, Social Media, saha SEO Automation. Solutions Matrix page eke full details thiyenawa.',
+    aiworkflow:'Api AI workflow automation karanawa — LLM pipelines, multi-agent systems, saha process automation enterprise scale ekata.',
+    cybermitigation:'Apey cyber mitigation approach eke threat monitoring, incident response saha architecture hardening thiyenawa.',
+    pentest:'Api OWASP Top 10 anuwa web saha network pentesting full karanawa, red team simulations ekka.',
+    uiux:'Apey UI/UX process eke research walin patan gena Figma design saha production code dakwa yanawa.',
+    booking:'Oyata Booking Grid page eken free 30-minute session ekak book karanna puluwan — date ekak select karala, time slot ekak gahala confirm karanna.',
+    pricing:'Pricing eka project scope anuwa decide wenawa. Free discovery call ekakata book karala custom estimate ekak ganna puluwan.',
+    industries:'Api FinTech, Healthcare, E-Commerce, Manufacturing, Gaming saha Government sectors walata service denawa.',
+    location:'Pryme X US saha Sri Lanka dekama hubs walin operate karanawa.',
+    contact:'Apiwa contact karanna:\nUS: +1 (402) 808-7890\nSri Lanka (WhatsApp text only): +94 74 087 5089',
+    access:'Google SSO ekka secure login karanna puluwan. Secure Access page ekata yanna.',
+    default:'Mata apey leadership, services, pricing, ho contact details gana ahanna puluwan. Quick options check karanna.',
+  }
+};
+
+function detectIntent(msg){
+  const lower=msg.toLowerCase();
+  for(const[intent,keywords]of Object.entries(botKnowledge)){
+    if(keywords.some(k=>lower.includes(k)))return intent;
+  }
+  return'default';
+}
+function addMessage(text,role){
+  const div=document.createElement('div');
+  div.className=`msg msg-${role}`;
+  const bubble=document.createElement('div');
+  bubble.className='msg-bubble';
+  bubble.innerHTML=text.replace(/\n/g,'<br>');
+  div.appendChild(bubble);
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop=chatMessages.scrollHeight;
+}
+function sendMessage(msg){
+  if(!msg.trim())return;
+  addMessage(msg,'user');
+  chatInput.value='';
+  setTimeout(()=>{
+    const lang=detectLanguage(msg);
+    const intent=detectIntent(msg);
+    const replyBank=botResponses[lang]||botResponses.en;
+    addMessage(replyBank[intent]||replyBank.default,'bot');
+  },550);
+}
+function sendChip(msg){sendMessage(msg)}
+chatSend.addEventListener('click',()=>sendMessage(chatInput.value));
+chatInput.addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage(chatInput.value)});
+
+/* ===================== INIT ===================== */
+document.querySelectorAll('#page-home .reveal').forEach(el=>el.classList.add('visible'));
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. මොබයිල් ඉරි කෑලි 3 ක්ලික් එක හදන ක්‍රමය
+  const menuToggle = document.querySelector('.mobile-menu-toggle') || document.getElementById('menuToggle');
+  const mobileDrawer = document.querySelector('.mobile-menu-container');
+  const closeMenuBtn = document.querySelector('.close-menu') || document.getElementById('closeMenu');
+
+  if (menuToggle && mobileDrawer) {
+    menuToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      mobileDrawer.classList.toggle('active');
+    });
+  }
+
+  if (closeMenuBtn && mobileDrawer) {
+    closeMenuBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      mobileDrawer.classList.remove('active');
+    });
+  }
+
+  // මොබයිල් මෙනු එකේ ලින්ක් එකක් ක්ලික් කරාම මෙනු එක වැහිලා පිටුවට යන්න
+  const mobileLinks = document.querySelectorAll('.mobile-menu-container a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileDrawer) mobileDrawer.classList.remove('active');
+    });
+  });
+
+  // 2. Cookie Consent එක වැඩ කරවන ක්‍රමය
+  const cookieBanner = document.querySelector('.cookie-banner');
+  const acceptBtn = document.querySelector('.cookie-btn') || document.getElementById('acceptCookies');
+
+  // කලින් Accept කරලා නැත්නම් විතරක් පෙන්වන්න
+  if (cookieBanner) {
+    if (!localStorage.getItem('prymex_cookies_accepted')) {
+      cookieBanner.style.setProperty('display', 'block', 'important');
+    } else {
+      cookieBanner.style.setProperty('display', 'none', 'important');
+    }
+  }
+
+  if (acceptBtn && cookieBanner) {
+    acceptBtn.addEventListener('click', function() {
+      localStorage.setItem('prymex_cookies_accepted', 'true');
+      cookieBanner.style.setProperty('display', 'none', 'important');
+    });
+  }
+});
+</script>
+  <div id="prymexCookieBanner" class="cookie-banner" style="display: none;">
+  <div class="cookie-content">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+      <i data-lucide="shield-check" style="color: var(--yellow); width: 20px; height: 20px;"></i>
+      <h3 style="margin: 0; color: var(--white); font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem;">PRYME X ENCRYPTED PROTOCOLS</h3>
+    </div>
+    <p style="margin: 0 0 16px 0; color: var(--slate); font-size: 0.85rem; line-height: 1.5;">
+      We deploy advanced security matrices and cookie-based telemetry to optimize your decentralized interface experience. By authorizing these nodes, you accept our defensive frameworks.
+    </p>
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <button id="btnAcceptCookies" class="cookie-btn" style="background: var(--yellow); color: var(--graphite); border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+        ACCEPT PROTOCOLS
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function initPrymeFixes() {
+    console.log("Pryme X Mobile & Cookie Repair Core Engaged.");
+
+    // --- A. COOKIE BANNER LOGIC ---
+    const cookieBanner = document.getElementById('prymexCookieBanner');
+    const acceptBtn = document.getElementById('btnAcceptCookies');
+
+    if (cookieBanner) {
+      if (!localStorage.getItem('prymex_cookies_accepted')) {
+        cookieBanner.style.setProperty('display', 'block', 'important');
+      }
+      
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+          localStorage.setItem('prymex_cookies_accepted', 'true');
+          cookieBanner.style.setProperty('display', 'none', 'important');
+        });
+      }
+    }
+
+    // --- B. MOBILE HAMBURGER MENU ENGINE ---
+    // HTML එකේ මොන නමකින් බටන් එක තිබ්බත් අහුවෙන්නSelectors කීපයක්ම දැම්මා
+    const menuBtn = document.querySelector('.mobile-menu-toggle') || 
+                    document.getElementById('menuToggle') || 
+                    document.querySelector('[aria-label="Open menu"]') ||
+                    document.querySelector('.nav-toggle');
+                    
+    const menuDrawer = document.querySelector('.mobile-menu-container') || 
+                       document.querySelector('.mobile-drawer') || 
+                       document.getElementById('mobileMenu');
+                       
+    const closeBtn = document.querySelector('.close-menu') || 
+                     document.getElementById('closeMenu') ||
+                     document.querySelector('.mobile-menu-close');
+
+    if (menuBtn && menuDrawer) {
+      // පරණ Click Events ඔක්කොම ක්ලියර් කරලා අලුතින්ම දෙනවා
+      menuBtn.style.cursor = 'pointer';
+      menuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        menuDrawer.classList.toggle('active');
+        // ජාවාස්ක්‍රිප්ට් එකෙන් බලෙන්ම පෙන්වීම (CSS අවුල් තිබ්බොත් හරි යන්න)
+        if (menuDrawer.classList.contains('active')) {
+          menuDrawer.style.setProperty('display', 'flex', 'important');
+          menuDrawer.style.setProperty('opacity', '1', 'important');
+          menuDrawer.style.setProperty('visibility', 'visible', 'important');
+        } else {
+          menuDrawer.style.setProperty('display', 'none', 'important');
+        }
+      });
+    }
+
+    if (closeBtn && menuDrawer) {
+      closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        menuDrawer.classList.remove('active');
+        menuDrawer.style.setProperty('display', 'none', 'important');
+      });
+    }
+
+    // මෙනු එකේ ලින්ක් එකක් ක්ලික් කරාම මෙනු එක වැහෙන්න
+    const links = document.querySelectorAll('.mobile-menu-container a, .mobile-drawer a');
+    links.forEach(l => {
+      l.addEventListener('click', () => {
+        if (menuDrawer) {
+          menuDrawer.classList.remove('active');
+          menuDrawer.style.setProperty('display', 'none', 'important');
+        }
+      });
+    });
+
+    // --- C. CHATBOT RESET ENGINE ---
+    // කලින් හිරවුණ හැමදේම නැවත පණ ගැන්වීම
+    const chatFab = document.getElementById('chatFab');
+    const chatWidget = document.getElementById('chatWidget');
+    const chatClose = document.getElementById('chatClose');
+
+    if (chatFab && chatWidget) {
+      chatFab.addEventListener('click', function(e) {
+        e.preventDefault();
+        chatWidget.classList.toggle('open');
+      });
+    }
+    if (chatClose && chatWidget) {
+      chatClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        chatWidget.classList.remove('open');
+      });
+    }
+
+    // Lucide Icons Render කිරීම
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
+  // පිටුව Load වුණු ගමන් වගේම Safe සයිඩ් එකට තත්පරයකට පස්සෙත් මේක රන් කරනවා
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPrymeFixes);
+  } else {
+    initPrymeFixes();
+  }
+  setTimeout(initPrymeFixes, 1200);
+})();
+</script>
+</body>
+</html>
