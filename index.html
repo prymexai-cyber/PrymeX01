@@ -2512,13 +2512,12 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
-  <script>
+<script>
 (function() {
-  function forceEngagePrymeCore() {
-    console.log("Pryme X System: Initializing Safe Recovery Engine...");
+  function patchPrymeChatbot() {
+    console.log("Pryme Matrix: Launching Chatbot Responder Patch...");
 
-    // --- 1. CHATBOT EVENT RESET & REPAIR ---
-    // HTML එකේ තියෙන ඔරිජිනල් Chatbot Elements ID හරියටම අල්ලනවා
+    // 1. Core Elements නිවැරදිව අල්ලා ගැනීම
     const chatFab = document.getElementById('chatFab');
     const chatWidget = document.getElementById('chatWidget');
     const chatClose = document.getElementById('chatClose');
@@ -2526,28 +2525,150 @@ document.addEventListener("DOMContentLoaded", function() {
     const chatSend = document.getElementById('chatSend');
     const chatMessages = document.getElementById('chatMessages');
 
-    // පරණ හිරවුණු click events අයින් කරන්නත් එක්ක අලුතින්ම Event Listeners දෙනවා
-    if (chatFab && chatWidget) {
-      chatFab.style.cursor = 'pointer';
-      // පරණ inline onclick තිබ්බොත් ඒවා අයින් කරනවා
-      chatFab.removeAttribute('onclick'); 
-      
-      chatFab.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        chatWidget.classList.toggle('open');
-        console.log("Chat widget state toggled.");
-      });
+    if (!chatFab || !chatWidget) {
+      console.error("Pryme Matrix Error: Chatbot interface elements missing in DOM.");
+      return;
     }
 
-    if (chatClose && chatWidget) {
-      chatClose.addEventListener('click', function(e) {
+    // 2. පැරණි හිරවුණු Click Events ඔක්කොම සම්පූර්ණයෙන්ම Clear කිරීම
+    const newChatFab = chatFab.cloneNode(true);
+    chatFab.parentNode.replaceChild(newChatFab, chatFab);
+    
+    const newChatSend = chatSend ? chatSend.cloneNode(true) : null;
+    if (chatSend && newChatSend) {
+      chatSend.parentNode.replaceChild(newChatSend, chatSend);
+    }
+
+    const newChatClose = chatClose ? chatClose.cloneNode(true) : null;
+    if (chatClose && newChatClose) {
+      chatClose.parentNode.replaceChild(newChatClose, chatClose);
+    }
+
+    // 3. බෝට්ව Open/Close කරන පාලකය (Toggle Window)
+    newChatFab.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      chatWidget.classList.toggle('open');
+      if(chatWidget.classList.contains('open')) {
+        chatWidget.style.setProperty('display', 'flex', 'important');
+      } else {
+        chatWidget.style.setProperty('display', 'none', 'important');
+      }
+    });
+
+    if (newChatClose) {
+      newChatClose.addEventListener('click', function(e) {
         e.preventDefault();
         chatWidget.classList.remove('open');
+        chatWidget.style.setProperty('display', 'none', 'important');
       });
     }
 
-    // --- 2. MOBILE HAMBURGER MENU REPAIR ---
+    // 4. බෝට්ගේ දැනුම ගබඩාව (Knowledge Base & Intelligence Layout)
+    const botResponses = {
+      si: {
+        ceo: "Pryme X AI Cyber Solutions හි නිර්මාතෘ සහ ප්‍රධාන විධායක නිලධාරී (CEO) වන්නේ සයිබර් ආරක්ෂණ ඉංජිනේරු යසිරු නෙත්ෂාන් ගුණසිංහ (Yasiru Nethshan Gunasinghe) මහතායි.",
+        services: "අපි ප්‍රධාන සේවාවන් 3ක් සපයනවා:\n1. Advanced Web Pentesting\n2. Custom Neural AI Automation Pipelines\n3. Premium 3D & UI/UX Designs (Blender/Figma)",
+        pricing: "අපගේ මිල ගණන් ව්‍යාපෘතියේ පරිමාණය අනුව වෙනස් වේ. තාක්ෂණික උපදේශනය පැයකට €150 සිට ආරම්භ වේ.",
+        contact: "ඔබට අපව සම්බන්ධ කර ගැනීමට අවශ්‍ය නම්, කරුණාකර Contact Page එකෙහි ඇති 'Broadcast Packet' පෝරමය පුරවා එවන්න. නැතහොත් +94 74 087 5089 අමතන්න.",
+        default: "මම Pryme X core AI සහායකයායි. මගෙන් අපගේ සේවාවන්, CEO, මිල ගණන් හෝ Contact විස්තර ගැන අසන්න පුළුවන්."
+      },
+      en: {
+        ceo: "Pryme X AI Cyber Solutions was founded and is dynamically directed by Cybersecurity Engineer Yasiru Nethshan Gunasinghe.",
+        services: "We deploy world-class systems: Advanced Web Pentesting, Neural AI Automation, and High-Fidelity 3D/UI/UX development.",
+        pricing: "Our corporate packages scale dynamically based on vector infrastructure requirements. Consulting starts at €150/hr.",
+        contact: "Secure routing active. Fill the transmission box on the Contact section or secure hotline: +94 74 087 5089.",
+        default: "Secure node transmission active. Ask me about our Cyber Audits, Custom AI Nodes, Pricing, or Executive Board Profiles."
+      }
+    };
+
+    // 5. භාෂාව සහ Intent හඳුනාගැනීමේ එන්ජිම
+    function detectLanguage(text) {
+      const lower = text.toLowerCase();
+      if (lower.match(/[අ-ෆ]/) || lower.includes('kauda') || lower.includes('mokක්ද') || lower.includes('puluwanda') || lower.includes('thama') || lower.includes('na ne')) {
+        return 'si';
+      }
+      return 'en';
+    }
+
+    function detectIntent(text) {
+      const lower = text.toLowerCase();
+      if (lower.includes('ceo') || lower.includes('kauda') || lower.includes('yasiru') || lower.includes('owner') || lower.includes('boss')) return 'ceo';
+      if (lower.includes('service') || lower.includes('wada') || lower.includes('monada') || lower.includes('capabilities') || lower.includes('ai')) return 'services';
+      if (lower.includes('price') || lower.includes('gana') || lower.includes('pricing') || lower.includes('cost') || lower.includes('mula')) return 'pricing';
+      if (lower.includes('contact') || lower.includes('call') || lower.includes('phone') || lower.includes('number') || lower.includes('sup') || lower.includes('hi')) return 'contact';
+      return 'default';
+    }
+
+    // 6. මැසේජ් එකක් Screen එකට එකතු කරන ආකාරය
+    function appendMessageBubble(text, sender) {
+      if (!chatMessages) return;
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `msg msg-${sender}`;
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.style.cssText = sender === 'user' 
+        ? "background: #FFD700 !important; color: #0B0D13 !important; padding: 10px 14px; border-radius: 12px 12px 0px 12px; max-width: 80%; align-self: flex-end; font-size: 0.88rem; font-weight: 500;"
+        : "background: #121620 !important; color: #F8FAFC !important; padding: 10px 14px; border-radius: 12px 12px 12px 0px; max-width: 80%; align-self: flex-start; font-size: 0.88rem; line-height: 1.4; border-left: 3px solid #FFD700;";
+      
+      bubble.innerHTML = text.replace(/\n/g, '<br>');
+      msgDiv.appendChild(bubble);
+      
+      // Flex Alignment නිවැරදි කිරීම
+      msgDiv.style.display = 'flex';
+      msgDiv.style.justifyContent = sender === 'user' ? 'flex-end' : 'flex-start';
+      msgDiv.style.width = '100%';
+      
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // 7. මැසේජ් එකක් යැවීමේ ප්‍රධාන ක්‍රියාවලිය (Execution Engine)
+    function triggerMessageSubmission() {
+      if (!chatInput) return;
+      const userText = chatInput.value.trim();
+      if (!userText) return;
+
+      // User මැසේජ් එක screen එකට දානවා
+      appendMessageBubble(userText, 'user');
+      chatInput.value = '';
+
+      // බෝට්ගේ රිප්ලයි එක තත්පර 0.5කින් එන්න සැලැස්වීම
+      setTimeout(function() {
+        const lang = detectLanguage(userText);
+        const intent = detectIntent(userText);
+        const replyText = botResponses[lang][intent] || botResponses[lang]['default'];
+        
+        appendMessageBubble(replyText, 'bot');
+      }, 500);
+    }
+
+    // 8. Event Listeners බටන් වලට සහ Enter Key එකට සම්බන්ධ කිරීම
+    if (newChatSend && chatInput) {
+      newChatSend.addEventListener('click', function(e) {
+        e.preventDefault();
+        triggerMessageSubmission();
+      });
+
+      chatInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          triggerMessageSubmission();
+        }
+      });
+    }
+
+    // Quick Chips (බටන් කෑලි ක්ලික් කරාම වැඩ කරන්න)
+    window.sendChip = function(chipText) {
+      if (!chipText) return;
+      if (chatInput) {
+        chatInput.value = chipText;
+        triggerMessageSubmission();
+      }
+    };
+
+    // --- MOBILE HAMBURGER MENU ENGINE ---
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.querySelector('.mobile-menu-container');
     const closeMenu = document.getElementById('closeMenu') || document.querySelector('.close-menu');
@@ -2555,54 +2676,29 @@ document.addEventListener("DOMContentLoaded", function() {
     if (menuToggle && mobileMenu) {
       menuToggle.addEventListener('click', function(e) {
         e.preventDefault();
-        e.stopPropagation();
         mobileMenu.classList.toggle('active');
       });
     }
-
     if (closeMenu && mobileMenu) {
       closeMenu.addEventListener('click', function(e) {
         e.preventDefault();
         mobileMenu.classList.remove('active');
       });
     }
-
-    // මෙනු ලින්ක් එකක් ක්ලික් කරපු ගමන් මොබයිල් ඩ්‍රෝවර් එක වැහෙන්න
     document.querySelectorAll('.mobile-menu-container a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (mobileMenu) mobileMenu.classList.remove('active');
-      });
+      link.addEventListener('click', () => { if (mobileMenu) mobileMenu.classList.remove('active'); });
     });
 
-    // --- 3. TELEMETRY COOKIE BANNER ENGINE ---
-    const cookieBanner = document.getElementById('cookieBanner') || document.querySelector('.cookie-banner');
-    const acceptCookies = document.getElementById('acceptCookies');
-
-    if (cookieBanner) {
-      if (!localStorage.getItem('prymex_cookies_accepted')) {
-        cookieBanner.style.setProperty('display', 'block', 'important');
-      }
-      if (acceptCookies) {
-        acceptCookies.addEventListener('click', function() {
-          localStorage.setItem('prymex_cookies_accepted', 'true');
-          cookieBanner.style.setProperty('display', 'none', 'important');
-        });
-      }
-    }
-
-    // Icons Render කිරීමට Lucide කැඳවීම
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
+    if (typeof lucide !== 'undefined') lucide.createIcons();
   }
 
-  // පිටුව Load වුණු ගමන් වගේම සේෆ් සයිඩ් එකට තත්පරයකට පස්සෙත් මේක රන් කරවනවා
+  // DOM එක ලෝඩ් වුණු ගමන් බලෙන්ම Inject කරනවා
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', forceEngagePrymeCore);
+    document.addEventListener('DOMContentLoaded', patchPrymeChatbot);
   } else {
-    forceEngagePrymeCore();
+    patchPrymeChatbot();
   }
-  setTimeout(forceEngagePrymeCore, 1500);
+  setTimeout(patchPrymeChatbot, 1200); // Fail-safe re-execution
 })();
 </script>
 </body>
